@@ -1,4 +1,4 @@
-class DrillSet < ApplicationRecord
+class Drill < ApplicationRecord
   # has_many :drill_set_drills
   # has_many :drill_sets, through: :drill_set_drills
 

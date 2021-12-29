@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(version: 2021_12_29_200006) do
   end
 
   create_table "user_workouts", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "workout_id"
+    t.bigint "user_id", null: false
+    t.bigint "workout_id", null: false
     t.boolean "complete", default: false
     t.datetime "date", precision: 6
     t.text "notes"
@@ -69,4 +69,6 @@ ActiveRecord::Schema.define(version: 2021_12_29_200006) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "user_workouts", "users"
+  add_foreign_key "user_workouts", "workouts"
 end
