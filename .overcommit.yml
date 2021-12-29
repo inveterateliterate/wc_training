@@ -29,5 +29,5 @@ CommitMsg:
     enabled: false
 
 PrePush:
-  Rspec:
+  RSpec:
     enabled: true
