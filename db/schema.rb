@@ -10,15 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_29_194425) do
+ActiveRecord::Schema.define(version: 2021_12_29_200006) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "conditioning_sets", force: :cascade do |t|
-    t.integer "run_type", null: false
+  create_table "drill_sets", force: :cascade do |t|
+    t.integer "num_set_reps", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "drills", force: :cascade do |t|
+    t.string "name"
+    t.integer "drill_type", null: false
+    t.integer "run_type"
+    t.integer "lift_type"
+    t.integer "distance"
+    t.integer "distance_unit"
+    t.integer "rep_rest_time"
+    t.integer "rest_time_unit", default: 0
+    t.integer "time_goal"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "user_workouts", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "workout_id"
+    t.boolean "complete", default: false
+    t.datetime "date", precision: 6
+    t.text "notes"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_user_workouts_on_user_id"
+    t.index ["workout_id"], name: "index_user_workouts_on_workout_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_may :workouts, through: :user_workouts
+
   validates_presence_of :email
   validates_uniqueness_of :email
 end

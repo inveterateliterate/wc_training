@@ -1,4 +1,6 @@
 class Workout < ApplicationRecord
+  has_may :users, through: :user_workouts
+
   validates_presence_of :week_num, :day_num
 
   enum day_num: {

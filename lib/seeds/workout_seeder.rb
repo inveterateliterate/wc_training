@@ -6,6 +6,8 @@ module Seeds
     def seed_db
       create_workouts
       create_conditioning_sets
+      create_conditioning_exercises
+      create_conditioning_
     end
 
     def models_to_clean
