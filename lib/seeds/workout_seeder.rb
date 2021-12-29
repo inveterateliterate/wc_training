@@ -5,22 +5,20 @@ module Seeds
 
     def seed_db
       create_workouts
-      create_conditioning_sets
-      create_conditioning_exercises
-      create_conditioning_
+      create_drills
     end
 
     def models_to_clean
       [
         Workout,
-        ConditioningSet,
+        Drill,
       ]
     end
 
     def models_seeded
       [
         Workout,
-        ConditioningSet
+        Drill,
       ]
     end
 
@@ -33,12 +31,16 @@ module Seeds
       Workout.create!(workouts_array)
     end
 
-    def create_conditioning_sets
-      # run_types.keys.length == WEEKDAYS.length
-      cs_array = ConditioningSet.run_types.keys.flat_map do |run_type|
-        Array.new(NUM_WEEKS) { { run_type: run_type }}
+    def create_drills
+      create_conditioning_drills
+      # create_lifting_drills
+    end
+
+    def create_conditioning_drills
+      cs_drills = Drill.run_types.keys.flat_map do |run_type|
+        Array.new(NUM_WEEKS) { FactoryBot.attributes_for(:drill, run_type) }
       end
-      ConditioningSet.create!(cs_array)
+      Drill.create!(cs_drills)
     end
   end
 end

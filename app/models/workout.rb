@@ -12,4 +12,7 @@ class Workout < ApplicationRecord
     friday: 5,
     saturday: 6,
   }
+
+  NUM_CONDITIONING_SET_REPS = 1 # do each set once
+  NUM_LIFTING_SET_REPS = 3 # do each set 3 times (unless between sets)
 end

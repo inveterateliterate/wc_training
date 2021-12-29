@@ -3,6 +3,7 @@ class CreateDrills < ActiveRecord::Migration[7.0]
     create_table :drills do |t|
       t.string :name
       t.integer :drill_type, null: false
+      t.integer :num_reps, null: false
       t.integer :run_type
       t.integer :lift_type
       t.integer :distance

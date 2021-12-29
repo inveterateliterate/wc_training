@@ -1,8 +1,5 @@
 class Drill < ApplicationRecord
-  # has_many :drill_set_drills
-  # has_many :drill_sets, through: :drill_set_drills
-
-  validates_presence_of :drill_type
+  validates_presence_of :drill_type, :num_reps
 
   enum drill_type: {
     conditioning: 0,

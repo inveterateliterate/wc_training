@@ -2,6 +2,7 @@ FactoryBot.define do
   factory :drill do
     name { 'Long Run' }
     drill_type { :conditioning }
+    num_reps { 1 }
     distance_unit { :miles }
     time_goal { 30 }
     description { '30 minutes at the fastest pace you can run' }
@@ -11,6 +12,7 @@ FactoryBot.define do
     trait :long_run do
       name { 'Long Run' }
       drill_type { :conditioning }
+      num_reps { 1 }
       run_type { :long_run }
       distance_unit { :miles }
       time_goal { 30 }
@@ -20,6 +22,7 @@ FactoryBot.define do
     trait :hundreds do
       name { "100's on the minute" }
       drill_type { :conditioning }
+      num_reps { 10 }
       run_type { :hundreds }
       distance { 100 }
       distance_unit { :yards }
@@ -29,6 +32,7 @@ FactoryBot.define do
     trait :speed_training do
       name { 'Speed Training - 60' }
       drill_type { :conditioning }
+      num_reps { 6 }
       run_type { :speed_training }
       distance { 60 }
       distance_unit { :yards }
@@ -40,6 +44,7 @@ FactoryBot.define do
     trait :yard_sets do
       name { 'Yard Set (25)' }
       drill_type { :conditioning }
+      num_reps { 4 }
       run_type { :yard_sets }
       distance { 300 }
       distance_unit { :yards }
@@ -51,6 +56,7 @@ FactoryBot.define do
     trait :mile_reps do
       name { 'Mile Reps' }
       drill_type { :conditioning }
+      num_reps { 3 }
       run_type { :mile_reps }
       distance { 0.5 }
       distance_unit { :miles }
