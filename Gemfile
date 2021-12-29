@@ -6,6 +6,7 @@ ruby '3.0.3'
 gem 'avo'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', require: false
+gem 'danger'
 gem 'decanter'
 gem 'devise'
 gem 'factory_bot_rails'
