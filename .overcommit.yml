@@ -20,11 +20,6 @@ PreCommit:
     enabled: true
     on_warn: fail # Treat all warnings as failures
 
-  EnsureSpecHelper:
-    enabled: true
-    description: 'Checking for missing inclusion of rails_helper'
-    include: '**/*_spec.rb'
-
   RunDatabaseConsistency:
     enabled: true
     description: 'Running database_consistency gem'
@@ -32,3 +27,7 @@ PreCommit:
 CommitMsg:
   ALL:
     enabled: false
+
+PrePush:
+  Rspec:
+    enabled: true
