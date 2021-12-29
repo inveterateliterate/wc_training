@@ -1,0 +1,46 @@
+{
+  "name": "WC Training",
+  "description": "Interactive web app of the training workout used by the Israeli Women's National Team for the 2013 World Cup",
+  "scripts": {
+    "postdeploy": "bundle exec rake db:migrate && rake db:seed"
+  },
+  "env": {
+    "APPLICATION_ROOT_URL": {
+      "required": true
+    },
+    "HEROKU_APP_NAME": {
+      "required": true
+    },
+    "LANG": {
+      "required": true
+    },
+    "RACK_ENV": {
+      "required": true
+    },
+    "RAILS_ENV": {
+      "required": true
+    },
+    "RAILS_LOG_TO_STDOUT": {
+      "required": true
+    },
+    "RAILS_SERVE_STATIC_FILES": {
+      "required": true
+    },
+    "SECRET_KEY_BASE": {
+      "required": true
+    }
+  },
+  "formation": {
+  },
+  "addons": [
+    "heroku-postgresql"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodje"
+    },
+    {
+      "url": "heroku/ruby"
+    }
+  ]
+}

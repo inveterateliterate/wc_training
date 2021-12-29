@@ -1,24 +1,42 @@
 # WC Training
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Interactive web app of the training workout used by the Israeli Women's National Team for the 2013 World Cup
 
-Things you may want to cover:
+## Getting Started
+### Prerequisites
++ Ruby 3.0.3
++ Rails 7.0.0
++ Postgres
 
-* Ruby version
+### Setting Up
++ `git clone git@github.com:inveterateliterate/wc_training.git`
++ `cd wc_training`
++ `bundle install`
++ `bundle exec rake db:create`
 
-* System dependencies
+Please review the [ERD](https://dbdiagram.io/d/60d0a9ed0c1ff875fcd5ca66) for a visual reprensentation of the schema.
 
-* Configuration
+## Running in Development
 
-* Database creation
+### Loading Environment
++ `bundle install`
++ `bundle exec rake db:migrate db:seed`
++ `rails server`
++ `open localhost:3000`
+<!-- + running workers:
+  + `redis-server`
+  + `bundle exec sidekiq` -->
 
-* Database initialization
+### Committing
+Pull requests to the `dev` branch will trigger review apps in Heroku.
+The `staging` branch will auto-deploy to the *staging* environment on Heroku.
+The `main` branch can then be auto-deployed to *production* after successful QA.
 
-* How to run the test suite
+### Testing
+All Ruby/Rails unit tests must pass for a PR to be merged. They can be run locally with `bundle exec rspec`
 
-* Services (job queues, cache servers, search engines, etc.)
+### Linting
+The project is set up to lint ruby so it's advised you have this integrated in your editor. A precommit hook has been added to run the linter when commiting.
 
-* Deployment instructions
-
-* ...
+You can run linting manually with:
++ Ruby: `bundle exec rubocop` (if installed globally with `gem install rubocop`)
