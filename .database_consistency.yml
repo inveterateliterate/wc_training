@@ -7,3 +7,14 @@ ActiveStorage::Blob:
   enabled: false
 ActiveStorage::VariantRecord:
   enabled: false
+
+User:
+  password:
+    ColumnPresenceChecker:
+      enabled: false
+  encrypted_password:
+    NullConstraintChecker:
+      enabled: false
+  index_users_on_reset_password_token:
+    UniqueIndexChecker:
+      enabled: false

@@ -44,5 +44,22 @@ module WcTraining
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    root_url = Rails.env.staging? ? "#{ENV['HEROKU_APP_NAME']}.herokuapp.com" : ENV['APPLICATION_ROOT_URL']
+
+    # config.active_job.queue_adapter     = :sidekiq
+    # config.action_mailer.delivery_method = :smtp
+    config.action_mailer.default_url_options = { host: root_url }
+    config.action_mailer.perform_deliveries = true
+
+    # config.action_mailer.smtp_settings = {
+    #   user_name: ENV['SENDGRID_USERNAME'],
+    #   password: ENV['SENDGRID_PASSWORD'],
+    #   domain: root_url,
+    #   address: 'smtp.sendgrid.net',
+    #   port: 587,
+    #   authentication: :plain,
+    #   enable_starttls_auto: true
+    # }
   end
 end
