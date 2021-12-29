@@ -16,19 +16,26 @@
 # Uncomment the following lines to make the configuration take effect.
 
 PreCommit:
- RuboCop:
-   enabled: true
-   on_warn: fail # Treat all warnings as failures
+  RuboCop:
+    enabled: true
+    on_warn: fail # Treat all warnings as failures
+
+  EnsureSpecHelper:
+    enabled: true
+    description: 'Checking for missing inclusion of rails_helper'
+    include: '**/*_spec.rb'
 
 CommitMsg:
-  TrailingPeriod:
+  ALL:
     enabled: false
-  TextWidth:
-    enabled: false
-  CapitalizedSubject:
-    enabled: false
-  SingleLineSubject:
-    enabled: false
+  # TrailingPeriod:
+  #   enabled: false
+  # TextWidth:
+  #   enabled: false
+  # CapitalizedSubject:
+  #   enabled: false
+  # SingleLineSubject:
+  #   enabled: false
 #  TrailingWhitespace:
 #    enabled: true
 #    exclude:
