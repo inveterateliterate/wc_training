@@ -39,13 +39,17 @@ group :development, :test do
 end
 
 group :development do
+  gem 'database_consistency'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'listen', '~> 3.3'
+  gem 'lol_dba'
+  gem 'rails-erd'
   gem 'rubocop'
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec', require: false
+  gem 'strong_migrations'
   gem 'web-console'
   # gem 'rack-mini-profiler'
 end
