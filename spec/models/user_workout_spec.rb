@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe UserWorkout, type: :model do
-  subject(:user_workouts) { build(:user_workouts) }
+  subject(:user_workout) { build(:user_workout) }
 
   it { is_expected.to be_valid }
 
