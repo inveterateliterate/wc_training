@@ -1,0 +1,80 @@
+Project WC_Training {
+  database_type: 'PostgreSQL'
+  Note: '''
+    # WC Training Database
+  '''
+}
+
+// Enum for 'ConditioningExercise' below
+Enum run_types {
+  timed_run // or for_distance
+  hundreds_on_the_minute
+  speed_training_yards
+  yard_sets // 25
+  distanced_run // or for_time
+}
+
+Enum units {
+  yards
+  miles
+}
+
+Table ConditioningExercise as CE {
+  id int [pk, increment] // auto-increment
+  run_type run_types
+  name varchar
+  created_at timestamp
+  updated_at timestamp
+  Indexes {
+    (id) [pk]
+  }
+}
+
+Table RunRep as R {
+  id int [pk, increment] // auto-increment
+  distance integer // how to do the suicide set?
+  unit units
+  int_rest_time integer // minutes
+  time_goal integer // minutes
+  suicide_set string // ? // can be the 25yds
+  description text
+  created_at timestamp
+  updated_at timestamp
+  Indexes {
+    (id) [pk]
+  }
+}
+
+Table ConditioningExerciseRun as CER {
+  id int [pk, increment] // auto-increment
+  conditioning_exercise_id int [ref: > CE.id]
+  run_rep_id int [ref: > R.id]
+  num_reps integer
+  created_at timestamp
+  updated_at timestamp
+  Indexes {
+    (id, conditioning_exercise_id, run_rep_id) [pk]
+  }
+}
+
+Table Workout as W {
+  id int [pk, increment] // auto-increment
+  week_num integer
+  day_num integer // 0-6 Sun - Sat
+  created_at timestamp
+  updated_at timestamp
+  Indexes {
+    (id) [pk]
+  }
+}
+
+Table WorkoutConditioningExercise as WCE {
+  id int [pk, increment] // auto-increment
+  conditioning_exercise_id int [ref: > CE.id]
+  workout_id int [ref: > W.id]
+  created_at timestamp
+  updated_at timestamp
+  Indexes {
+    (id, conditioning_exercise_id, workout_id) [pk]
+  }
+}
