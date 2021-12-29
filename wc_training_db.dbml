@@ -1,11 +1,11 @@
-Project WC_Training {
+Project WCTraining {
   database_type: 'PostgreSQL'
   Note: '''
     # WC Training Database
   '''
 }
 
-// Enum for 'ConditioningExercise' below
+// Enum for 'ConditioningSet' below
 Enum run_types {
   timed_run // or for_distance
   hundreds_on_the_minute
@@ -14,15 +14,9 @@ Enum run_types {
   distanced_run // or for_time
 }
 
-Enum units {
-  yards
-  miles
-}
-
-Table ConditioningExercise as CE {
+Table ConditioningSet as CS {
   id int [pk, increment] // auto-increment
   run_type run_types
-  name varchar
   created_at timestamp
   updated_at timestamp
   Indexes {
@@ -30,8 +24,15 @@ Table ConditioningExercise as CE {
   }
 }
 
-Table RunRep as R {
+// Enum for 'ConditioningExercise' below
+Enum units {
+  yards
+  miles
+}
+
+Table ConditioningExercise as CE {
   id int [pk, increment] // auto-increment
+  name varchar
   distance integer // how to do the suicide set?
   unit units
   int_rest_time integer // minutes
@@ -45,15 +46,49 @@ Table RunRep as R {
   }
 }
 
-Table ConditioningExerciseRun as CER {
+Table ConditioningSetConditioningExercise as CSCE {
   id int [pk, increment] // auto-increment
+  conditioning_set_id int [ref: > CS.id]
   conditioning_exercise_id int [ref: > CE.id]
-  run_rep_id int [ref: > R.id]
   num_reps integer
   created_at timestamp
   updated_at timestamp
   Indexes {
-    (id, conditioning_exercise_id, run_rep_id) [pk]
+    (id, conditioning_set_id, conditioning_exercise_id) [pk]
+  }
+}
+
+Table LiftingSet as LS {
+  id int [pk, increment] // auto-increment
+  num_reps integer
+  created_at timestamp
+  updated_at timestamp
+  Indexes {
+    (id) [pk]
+  }
+}
+
+Table LiftingExercise as LE {
+  id int [pk, increment] // auto-increment
+  name string
+  description text
+  created_at timestamp
+  updated_at timestamp
+  Indexes {
+    (id) [pk]
+  }
+}
+
+Table LiftingSetLiftingExercise as LSLE {
+  id int [pk, increment] // auto-increment
+  lifting_set_id int [ref: > LS.id]
+  lifting_exercise_id int [ref: > LE.id]
+  between_sets boolean [default: false] // used for scoping
+  num_reps integer
+  created_at timestamp
+  updated_at timestamp
+  Indexes {
+    (id, lifting_set_id, lifting_exercise_id) [pk]
   }
 }
 
@@ -68,13 +103,93 @@ Table Workout as W {
   }
 }
 
-Table WorkoutConditioningExercise as WCE {
+Table WorkoutConditioningSet as WCS {
   id int [pk, increment] // auto-increment
-  conditioning_exercise_id int [ref: > CE.id]
+  conditioning_set_id int [ref: > CS.id]
   workout_id int [ref: > W.id]
   created_at timestamp
   updated_at timestamp
   Indexes {
-    (id, conditioning_exercise_id, workout_id) [pk]
+    (id, conditioning_set_id, workout_id) [pk]
   }
 }
+
+Table WorkoutLiftingSet as WLS {
+  id int [pk, increment] // auto-increment
+  lifting_set_id int [ref: > LS.id]
+  workout_id int [ref: > W.id]
+  created_at timestamp
+  updated_at timestamp
+  Indexes {
+    (id, lifting_set_id, workout_id) [pk]
+  }
+}
+
+Table User as U {
+  id int [pk, increment] // auto-increment
+  first_name string
+  last_name string
+  email string [not null, unique]
+  password string
+  created_at timestamp
+  updated_at timestamp
+  Indexes {
+    (id) [pk]
+  }
+}
+
+// How best to capture notes along the way?
+Table UserWorkout as UW {
+  id int [pk, increment] // auto-increment
+  user_id int [ref: > U.id]
+  workout_id int [ref: > W.id]
+  complete boolean [default: false]
+  date DateTime // can help with calculating which workout to show next
+  notes text // can include how felt, etc.
+  created_at timestamp
+  updated_at timestamp
+  Indexes {
+    (id, user_id, workout_id) [pk]
+  }
+}
+
+// could be polymorphic by exercise type
+// will this result in too many unperformanct
+// query traversing?
+Table UserExercise as UE {
+  id int [pk, increment] // auto-increment
+  user_id int [ref: > U.id]
+  conditioning_exercise_id int [ref: > CE.id]
+  lifting_exercise_id int [ref: > LE.id]
+  user_workout_id int [ref: > UW.id]
+  // complete boolean [default: false] // this may or may not make sense here
+  notes text // can include weight value, time, modified, etc
+  created_at timestamp
+  updated_at timestamp
+  Indexes {
+    (id, user_id, conditioning_exercise_id, lifting_exercise_id, user_workout_id) [pk]
+  }
+}
+
+
+// need to persist now? Can have a non-db
+// table to calcualte these things
+// Table Program as P {
+//   id int [pk, increment] // auto-increment
+//   created_at timestamp
+//   updated_at timestamp
+//   Indexes {
+//     (id) [pk]
+//   }
+// }
+
+// Table UserProgram as UP {
+//   id int [pk, increment] // auto-increment
+//   user_id int [ref: > U.id]
+//   program_id int [ref: > P.id]
+//   created_at timestamp
+//   updated_at timestamp
+//   Indexes {
+//     (id) [pk]
+//   }
+// }
