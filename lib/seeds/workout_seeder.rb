@@ -5,17 +5,20 @@ module Seeds
 
     def seed_db
       create_workouts
+      create_conditioning_sets
     end
 
     def models_to_clean
       [
         Workout,
+        ConditioningSet,
       ]
     end
 
     def models_seeded
       [
         Workout,
+        ConditioningSet
       ]
     end
 
@@ -26,6 +29,14 @@ module Seeds
         end
       end.flatten
       Workout.create!(workouts_array)
+    end
+
+    def create_conditioning_sets
+      # run_types.keys.length == WEEKDAYS.length
+      cs_array = ConditioningSet.run_types.keys.flat_map do |run_type|
+        Array.new(NUM_WEEKS) { { run_type: run_type }}
+      end
+      ConditioningSet.create!(cs_array)
     end
   end
 end
