@@ -3,8 +3,6 @@ module Overcommit::Hook::PreCommit
     def run
       errors = `bundle exec database_consistency`
       errors.empty? ? :pass : [:fail, errors.join("\n")]
-      # return :fail, errors.join("\n") unless errors.empty?
-      # :pass
     end
   end
 end
