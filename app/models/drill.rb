@@ -1,6 +1,6 @@
 class Drill < ApplicationRecord
-  has_many :workout_sets
-  has_many :workout, through: :workout_sets
+  has_many :workout_set_drills
+  has_many :workout, through: :workout_set_drills
   has_many :user_workout_drills
   # has_many :users, through: :user_workout_drills
 
