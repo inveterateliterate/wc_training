@@ -3,14 +3,6 @@ class DrillTypeFilter < Avo::Filters::SelectFilter
 
   def apply(_request, query, value)
     query.send(value)
-    # case value
-    # when 'conditioning'
-    #   query.conditioning
-    # when 'lifting'
-    #   query.lifting
-    # else
-    #   query
-    # end
   end
 
   def options
