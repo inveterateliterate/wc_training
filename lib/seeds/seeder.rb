@@ -18,6 +18,7 @@ module Seeds
       puts '==========================================='
       puts "CLEANING #{formatted_seeder_name} MODELS"
       models_to_clean.each { |table| table.destroy_all }
+
       puts "FINISHED CLEANING #{formatted_seeder_name} MODELS"
     end
 
