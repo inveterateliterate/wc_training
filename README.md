@@ -15,6 +15,8 @@ Interactive web app of the training workout used by the Israeli Women's National
 + `bundle exec rake db:create`
 
 Please review the [ERD](https://dbdiagram.io/d/60d0a9ed0c1ff875fcd5ca66) for a visual reprensentation of the schema.
+Additionally, a png of the ERD is regenerated with each `db:migrate` to erd.png
+Lastly, db documentation can be pushed up to dbdocs with `dbdocs build wc_training_db.dbml` and viewed at https://dbdocs.io/iribon9/WCTraining
 
 ## Running in Development
 

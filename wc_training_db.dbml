@@ -5,132 +5,14 @@ Project WCTraining {
   '''
 }
 
-// Enum for 'ConditioningSet' below
-Enum run_types {
-  timed_run // or for_distance
-  hundreds_on_the_minute
-  speed_training_yards
-  yard_sets // 25
-  distanced_run // or for_time
-}
-
-Table ConditioningSet as CS {
-  id int [pk, increment] // auto-increment
-  run_type run_types
-  created_at timestamp
-  updated_at timestamp
-  Indexes {
-    (id) [pk]
-  }
-}
-
-// Enum for 'ConditioningExercise' below
-Enum units {
-  yards
-  miles
-}
-
-Table ConditioningExercise as CE {
-  id int [pk, increment] // auto-increment
-  name varchar
-  distance integer // how to do the suicide set?
-  unit units
-  int_rest_time integer // minutes
-  time_goal integer // minutes
-  suicide_set string // ? // can be the 25yds
-  description text
-  created_at timestamp
-  updated_at timestamp
-  Indexes {
-    (id) [pk]
-  }
-}
-
-Table ConditioningSetConditioningExercise as CSCE {
-  id int [pk, increment] // auto-increment
-  conditioning_set_id int [ref: > CS.id]
-  conditioning_exercise_id int [ref: > CE.id]
-  num_reps integer
-  created_at timestamp
-  updated_at timestamp
-  Indexes {
-    (id, conditioning_set_id, conditioning_exercise_id) [pk]
-  }
-}
-
-Table LiftingSet as LS {
-  id int [pk, increment] // auto-increment
-  num_reps integer
-  created_at timestamp
-  updated_at timestamp
-  Indexes {
-    (id) [pk]
-  }
-}
-
-Table LiftingExercise as LE {
-  id int [pk, increment] // auto-increment
-  name string
-  description text
-  created_at timestamp
-  updated_at timestamp
-  Indexes {
-    (id) [pk]
-  }
-}
-
-Table LiftingSetLiftingExercise as LSLE {
-  id int [pk, increment] // auto-increment
-  lifting_set_id int [ref: > LS.id]
-  lifting_exercise_id int [ref: > LE.id]
-  between_sets boolean [default: false] // used for scoping
-  num_reps integer
-  created_at timestamp
-  updated_at timestamp
-  Indexes {
-    (id, lifting_set_id, lifting_exercise_id) [pk]
-  }
-}
-
-Table Workout as W {
-  id int [pk, increment] // auto-increment
-  week_num integer
-  day_num integer // 0-6 Sun - Sat
-  created_at timestamp
-  updated_at timestamp
-  Indexes {
-    (id) [pk]
-  }
-}
-
-Table WorkoutConditioningSet as WCS {
-  id int [pk, increment] // auto-increment
-  conditioning_set_id int [ref: > CS.id]
-  workout_id int [ref: > W.id]
-  created_at timestamp
-  updated_at timestamp
-  Indexes {
-    (id, conditioning_set_id, workout_id) [pk]
-  }
-}
-
-Table WorkoutLiftingSet as WLS {
-  id int [pk, increment] // auto-increment
-  lifting_set_id int [ref: > LS.id]
-  workout_id int [ref: > W.id]
-  created_at timestamp
-  updated_at timestamp
-  Indexes {
-    (id, lifting_set_id, workout_id) [pk]
-  }
-}
-
 Table User as U {
   id int [pk, increment] // auto-increment
   first_name string
   last_name string
+  // user_name string
+  // gravatar image
   email string [not null, unique]
-  password string
+  password string [not null]
   created_at timestamp
   updated_at timestamp
   Indexes {
@@ -138,7 +20,28 @@ Table User as U {
   }
 }
 
-// How best to capture notes along the way?
+Enum weekdays {
+  sunday
+  monday
+  tuesday
+  wednesday
+  thursday
+  friday
+  saturday
+}
+
+// has many workout sets
+Table Workout as W {
+  id int [pk, increment] // auto-increment
+  week_num integer
+  day_num weekdays // 0-6 Sun - Sat
+  created_at timestamp
+  updated_at timestamp
+  Indexes {
+    (id) [pk]
+  }
+}
+
 Table UserWorkout as UW {
   id int [pk, increment] // auto-increment
   user_id int [ref: > U.id]
@@ -153,43 +56,97 @@ Table UserWorkout as UW {
   }
 }
 
-// could be polymorphic by exercise type
-// will this result in too many unperformanct
-// query traversing?
-Table UserExercise as UE {
+// Enums for 'Drill' below
+Enum drill_types {
+  conditioning
+  lifting
+}
+
+
+Enum run_types {
+  timed_run // or for_distance
+  hundreds_on_the_minute
+  speed_training_yards
+  yard_sets // 25
+  distanced_run // or for_time
+}
+
+Enum lift_types {
+  arms
+  back
+  legs
+  abs
+  chest
+  total_body
+}
+
+Enum distance_units {
+  yards
+  miles
+}
+
+Enum rep_rest_time_units {
+  seconds
+  minutes
+}
+
+Table Drill as D {
   id int [pk, increment] // auto-increment
-  user_id int [ref: > U.id]
-  conditioning_exercise_id int [ref: > CE.id]
-  lifting_exercise_id int [ref: > LE.id]
+  name varchar
+  drill_type drill_types
+  num_reps integer
+  run_type run_types
+  lift_type lift_types
+  distance integer // how to do the suicide set?
+  distance_unit distance_units
+  rep_rest_time integer // seconds
+  rest_time_unit rep_rest_time_units [default: 0] // enum to convert
+  time_goal integer // minutes # can always convert
+  description text
+  created_at timestamp
+  updated_at timestamp
+  Indexes {
+    (id) [pk]
+  }
+}
+
+// many <> many sets of drills
+// can alias the drill_type to this model to quickly categorize
+Table WorkoutSetDrills {
+  id int [pk, increment] // auto-increment
+  workout_id int [ref: > W.id]
+  drill_id int [ref: > D.id]
+  set_number integer // for a given number just care what set it is in
+  between_sets boolean [default: false] // used for scoping
+  created_at timestamp
+  updated_at timestamp
+  Indexes {
+    (id, workout_id, drill_id) [pk]
+  }
+}
+
+Table UserWorkoutDrill as UE {
+  id int [pk, increment] // auto-increment
+  drill_id int [ref: > D.id]
   user_workout_id int [ref: > UW.id]
   // complete boolean [default: false] // this may or may not make sense here
   notes text // can include weight value, time, modified, etc
   created_at timestamp
   updated_at timestamp
   Indexes {
-    (id, user_id, conditioning_exercise_id, lifting_exercise_id, user_workout_id) [pk]
+    (id, drill_id, user_workout_id) [pk]
   }
 }
 
-
-// need to persist now? Can have a non-db
-// table to calcualte these things
-// Table Program as P {
-//   id int [pk, increment] // auto-increment
-//   created_at timestamp
-//   updated_at timestamp
-//   Indexes {
-//     (id) [pk]
-//   }
-// }
-
-// Table UserProgram as UP {
-//   id int [pk, increment] // auto-increment
-//   user_id int [ref: > U.id]
-//   program_id int [ref: > P.id]
-//   created_at timestamp
-//   updated_at timestamp
-//   Indexes {
-//     (id) [pk]
-//   }
-// }
+Table AdminUser as AU {
+  id int [pk, increment] // auto-increment
+  first_name string [not null]
+  last_name string [not null]
+  email string [not null, unique]
+  password string [not null]
+  created_at timestamp
+  updated_at timestamp
+  Indexes {
+    (id) [pk]
+  }
+}
