@@ -5,7 +5,6 @@ class UserResource < Avo::BaseResource
     scope.ransack(id_eq: params[:q], first_name_cont: params[:q], last_name_cont: params[:q], m: "or").result(distinct: false)
   end
 
-  # field :id, as: :id
   field :first_name, as: :text, sortable: true, required: true, placeholder: ''
   field :last_name, as: :text, sortable: true, required: true, placeholder: ''
   field :email, as: :text, sortable: true, required: true, placeholder: ''
