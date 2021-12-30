@@ -40,16 +40,18 @@ module Seeds
     end
 
     def create_conditioning_drills
-      cs_drills = Drill.run_types.keys.flat_map do |run_type|
-        Array.new(NUM_WEEKS) { FactoryBot.attributes_for(:drill, run_type) }
+      cs_drills = Drill.run_types.keys.map do |run_type|
+        FactoryBot.attributes_for(:drill, run_type)
       end
       Drill.create!(cs_drills)
     end
 
     # will want to be more clever about this
     def create_sets
-      sets = workouts.map.with_index do |workout, index|
-        { drill_id: drills[index].id, workout_id: workout.id, set_number: 1 }
+      sets = WEEKDAYS.flat_map.each_with_index do |weekday, index|
+        workouts.send(weekday).map do |workout|
+          { drill_id: drills[index].id, workout_id: workout.id, set_number: 1 }
+        end
       end
       WorkoutSetDrill.create!(sets)
     end

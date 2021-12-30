@@ -18,3 +18,14 @@ User:
   index_users_on_reset_password_token:
     UniqueIndexChecker:
       enabled: false
+
+AdminUser:
+  password:
+    ColumnPresenceChecker:
+      enabled: false
+  encrypted_password:
+    NullConstraintChecker:
+      enabled: false
+  index_admin_users_on_reset_password_token:
+    UniqueIndexChecker:
+      enabled: false

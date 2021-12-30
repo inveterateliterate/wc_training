@@ -37,7 +37,7 @@ FactoryBot.define do
       distance { 60 }
       distance_unit { :yards }
       rep_rest_time { 20 }
-      rest_time_unit { :seconds }
+      rep_rest_time_unit { :seconds }
       description { '60 yard sprints with 20 seconds rest in between each' }
     end
 
@@ -49,7 +49,7 @@ FactoryBot.define do
       distance { 300 }
       distance_unit { :yards }
       rep_rest_time { 2 }
-      rest_time_unit { :minutes }
+      rep_rest_time_unit { :minutes }
       description { '300’s with 2 minute rest in between each (25 yards up and back 6 times)' }
     end
 
@@ -61,7 +61,7 @@ FactoryBot.define do
       distance { 0.5 }
       distance_unit { :miles }
       rep_rest_time { 3 }
-      rest_time_unit { :minutes }
+      rep_rest_time_unit { :minutes }
       time_goal { 3.5 }
       description { '½ miles in 3:30 with 3 min rest in between each' }
     end

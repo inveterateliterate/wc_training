@@ -18,4 +18,12 @@ class Workout < ApplicationRecord
 
   NUM_CONDITIONING_SET_REPS = 1 # do each set once
   NUM_LIFTING_SET_REPS = 3 # do each set 3 times (unless between sets)
+
+  def title
+    "Week #{week_num}: #{display_day}"
+  end
+
+  def display_day
+    day_num.titleize
+  end
 end

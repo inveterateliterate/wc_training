@@ -18,9 +18,10 @@ module Seeds
     end
 
     def create_user_workouts
+      date = Date.today
       user_workout_array = users.pluck(:id).flat_map do |user_id|
         workouts.pluck(:id).map do |workout_id|
-          { user_id: user_id, workout_id: workout_id }
+          { user_id: user_id, workout_id: workout_id, date: date }
         end
       end
       @user_workouts = UserWorkout.create!(user_workout_array)
