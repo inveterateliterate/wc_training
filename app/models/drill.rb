@@ -37,8 +37,4 @@ class Drill < ApplicationRecord
     seconds: 0,
     minutes: 1,
   }
-
-  def time_in_minutes(time)
-    time * 60
-  end
 end

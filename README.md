@@ -34,6 +34,7 @@ The `main` branch can then be auto-deployed to *production* after successful QA.
 
 ### Testing
 All Ruby/Rails unit tests must pass for a PR to be merged. They can be run locally with `bundle exec rspec`
+This repo also runs [Simplecov]() to report on test coverage. To view the test coverage run `open coverage/index.html`
 
 ### Linting
 The project is set up to lint ruby so it's advised you have this integrated in your editor. A precommit hook has been added to run the linter when commiting.
