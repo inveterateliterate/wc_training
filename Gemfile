@@ -15,7 +15,7 @@ gem 'figaro'
 # gem 'hotwire-rails'
 gem 'importmap-rails'
 gem 'jbuilder'
-gem 'paper_trail'
+# gem 'paper_trail'
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 7.0.0'
@@ -33,15 +33,20 @@ gem 'tzinfo-data', platforms: %i[ mingw mswin x64_mingw jruby ]
 group :development, :test do
   gem 'bullet'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'letter_opener'
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'rspec-rails'
+  gem 'strong_migrations'
 end
 
 group :development do
+  gem 'database_consistency'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'listen', '~> 3.3'
+  gem 'lol_dba'
+  gem 'rails-erd'
   gem 'rubocop'
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
