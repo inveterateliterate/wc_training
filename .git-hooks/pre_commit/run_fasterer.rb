@@ -3,7 +3,7 @@ module Overcommit::Hook::PreCommit
     def run
       result = `fasterer`
       num_offenses = result.split[3].to_i
-      puts result
+      puts result.class
       puts num_offenses
       num_offenses.zero? ? :pass : [:fail, result.join("\n")]
     end
