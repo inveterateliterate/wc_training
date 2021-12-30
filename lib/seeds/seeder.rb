@@ -1,5 +1,6 @@
 module Seeds
-  class Seeder
+  module Seeder
+
     def run
       before_seed
       seed_db
@@ -21,11 +22,11 @@ module Seeds
     end
 
     def models_to_clean
-      raise NotImplementedError, 'must be implemented by subclasses'
+      raise NotImplementedError, 'must be implemented by utility modules'
     end
 
     def seed_db
-      raise NotImplementedError, 'must be implemented by subclasses'
+      raise NotImplementedError, 'must be implemented by utility modules'
     end
 
     def after_seed
@@ -65,3 +66,4 @@ module Seeds
     end
   end
 end
+

@@ -37,6 +37,8 @@ group :development, :test do
   gem 'letter_opener'
   gem 'pry-byebug'
   gem 'pry-rails'
+  gem 'rails_best_practices' # installed globally, may not ineed
+  gem 'reek'
   gem 'rspec-rails'
   gem 'strong_migrations'
 end

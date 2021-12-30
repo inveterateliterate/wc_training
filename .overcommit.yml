@@ -24,6 +24,16 @@ PreCommit:
     enabled: true
     description: 'Running database_consistency gem'
 
+  RunFasterer:
+    enabled: true
+    description: 'Running fasterer gem'
+
+  RailsBestPractices:
+    enabled: true
+
+  Reek:
+    enabled: true
+
 CommitMsg:
   ALL:
     enabled: false

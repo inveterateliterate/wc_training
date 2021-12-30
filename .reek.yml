@@ -1,0 +1,16 @@
+detectors:
+  IrresponsibleModule:
+    enabled: false
+
+directories:
+  # "app/models":
+  #   IrresponsibleModule: # don't care for describing core model classes
+  #     enabled: false
+  "app/avo/filters": # uses avo DSL
+    UtilityFunction:
+      enabled: false
+
+exclude_paths:
+  - config/application.rb
+  - db/migrate
+  - .git-hooks/**/*.rb
