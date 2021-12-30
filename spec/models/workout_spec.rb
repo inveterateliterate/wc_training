@@ -7,4 +7,12 @@ RSpec.describe Workout, type: :model do
 
   it { is_expected.to validate_presence_of(:week_num) }
   it { is_expected.to validate_presence_of(:day_num) }
+
+  describe 'instance methods' do
+    let(:workout) { build(:workout) }
+
+    it '#title' do
+      expect(workout.title).to eq('Week 1: Monday')
+    end
+  end
 end

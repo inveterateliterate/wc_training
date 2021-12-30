@@ -1,11 +1,12 @@
 module Seeds
   class UserSeeder < Seeder
     NUM_USERS = 3
-    EMAIL_USERNAME = ENV['EMAIL_USERNAME']
-    EMAIL_HOST = ENV['EMAIL_HOST']
+    EMAIL_USERNAME = Rails.application.credentials.email_username
+    EMAIL_HOST = Rails.application.credentials.email_host
+    PASSWORD = Rails.application.credentials.default_password
 
     def seed_db
-      # create_admin_user
+      create_admin_user unless AdminUser.count > 0
       create_users
     end
 
@@ -19,18 +20,18 @@ module Seeds
 
     def models_seeded
       [
+        AdminUser,
         User,
       ]
     end
 
-    # def create_admin_user
-    #   AdminUser.create!(FactoryBot.attributes_for(:admin_user, email: "#{EMAIL_USERNAME}+admin@#{EMAIL_HOST}"))
-    # end
+    def create_admin_user
+      AdminUser.create!(FactoryBot.attributes_for(:admin_user, email: "#{EMAIL_USERNAME}+admin@#{EMAIL_HOST}", password: PASSWORD))
+    end
 
     def create_users
-      users_array = Array.new(NUM_USERS) do |_n|
-        # FactoryBot.attributes_for(:user, email: "#{EMAIL_USERNAME}+n@#{EMAIL_HOST}")
-        FactoryBot.attributes_for(:user)
+      users_array = Array.new(NUM_USERS) do |n|
+        FactoryBot.attributes_for(:user, email: "#{EMAIL_USERNAME}+#{n}@#{EMAIL_HOST}", password: PASSWORD)
       end
       User.create!(users_array)
     end

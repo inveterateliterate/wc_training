@@ -8,7 +8,7 @@ class Drill < ApplicationRecord
 
   enum drill_type: {
     conditioning: 0,
-    liting: 1,
+    lifting: 1,
   }
 
   enum run_type: {
@@ -37,8 +37,4 @@ class Drill < ApplicationRecord
     seconds: 0,
     minutes: 1,
   }
-
-  def time_in_minutes(time)
-    time * 60
-  end
 end

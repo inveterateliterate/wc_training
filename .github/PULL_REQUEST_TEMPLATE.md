@@ -14,4 +14,4 @@
 - Any item that should not be included in QA
 
 ### Code / Architecture Notes
-- Something you want to highlight to the code reviewer (optional)
+- Something about these changes you want to highlight

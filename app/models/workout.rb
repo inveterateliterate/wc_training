@@ -16,6 +16,13 @@ class Workout < ApplicationRecord
     saturday: 6,
   }
 
+  scope :for_week, -> (week_num) { where(week_num: week_num) }
+  scope :for_day, -> (day_num) { where(day_num: day_num) } # to be able to use across other models (might be another way?)
+
   NUM_CONDITIONING_SET_REPS = 1 # do each set once
   NUM_LIFTING_SET_REPS = 3 # do each set 3 times (unless between sets)
+
+  def title
+    "Week #{week_num}: #{day_num.titleize}"
+  end
 end

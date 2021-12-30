@@ -53,7 +53,7 @@ module Seeds
     ## HELPERS AND COMMON ATTRIBUTES CAN GO BELOW
 
     def users
-      @users ||= Drill.all
+      @users ||= User.all
     end
 
     def workouts
