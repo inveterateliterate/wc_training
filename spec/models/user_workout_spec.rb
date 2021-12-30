@@ -7,4 +7,6 @@ RSpec.describe UserWorkout, type: :model do
 
   it { is_expected.to belong_to(:user) }
   it { is_expected.to belong_to(:workout) }
+
+  it { is_expected.to validate_presence_of(:date) }
 end

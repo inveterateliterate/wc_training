@@ -6,12 +6,14 @@ module Seeds
     def seed_db
       create_workouts
       create_drills
+      create_sets
     end
 
     def models_to_clean
       [
-        Workout,
+        WorkoutSetDrill,
         Drill,
+        Workout,
       ]
     end
 
@@ -19,6 +21,7 @@ module Seeds
       [
         Workout,
         Drill,
+        WorkoutSetDrill,
       ]
     end
 
@@ -41,6 +44,15 @@ module Seeds
         Array.new(NUM_WEEKS) { FactoryBot.attributes_for(:drill, run_type) }
       end
       Drill.create!(cs_drills)
+    end
+
+    # will want to be more clever about this
+    def create_sets
+      drills = Drill.all
+      sets = Workout.all.map.with_index do |workout, index|
+        { drill_id: drills[index].id, workout_id: workout.id, set_number: 1 }
+      end
+      WorkoutSetDrill.create!(sets)
     end
   end
 end

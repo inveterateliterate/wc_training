@@ -1,4 +1,7 @@
 class Drill < ApplicationRecord
+  has_many :workout_sets
+  has_many :workout, through: :workout_sets
+
   validates_presence_of :drill_type, :num_reps
 
   enum drill_type: {

@@ -1,5 +1,8 @@
 class Workout < ApplicationRecord
+  has_many :user_workouts
   has_many :users, through: :user_workouts
+  has_many :workout_sets
+  has_many :drills, through: :workout_sets
 
   validates_presence_of :week_num, :day_num
 

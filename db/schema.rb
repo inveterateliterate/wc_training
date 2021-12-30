@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_29_200006) do
+ActiveRecord::Schema.define(version: 2021_12_30_003927) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,8 +34,8 @@ ActiveRecord::Schema.define(version: 2021_12_29_200006) do
   create_table "user_workouts", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "workout_id", null: false
-    t.boolean "complete", default: false
-    t.datetime "date", precision: 6
+    t.boolean "complete", default: false, null: false
+    t.date "date", null: false
     t.text "notes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -57,6 +57,17 @@ ActiveRecord::Schema.define(version: 2021_12_29_200006) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "workout_set_drills", force: :cascade do |t|
+    t.bigint "workout_id", null: false
+    t.bigint "drill_id", null: false
+    t.integer "set_number"
+    t.boolean "between_sets", default: false, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["drill_id"], name: "index_workout_set_drills_on_drill_id"
+    t.index ["workout_id"], name: "index_workout_set_drills_on_workout_id"
+  end
+
   create_table "workouts", force: :cascade do |t|
     t.integer "week_num", null: false
     t.integer "day_num", null: false
@@ -66,4 +77,6 @@ ActiveRecord::Schema.define(version: 2021_12_29_200006) do
 
   add_foreign_key "user_workouts", "users"
   add_foreign_key "user_workouts", "workouts"
+  add_foreign_key "workout_set_drills", "drills"
+  add_foreign_key "workout_set_drills", "workouts"
 end
