@@ -11,6 +11,8 @@ module Seeds
 
     def models_to_clean
       [
+        UserWorkoutDrill,
+        UserWorkout,
         User,
       ]
     end

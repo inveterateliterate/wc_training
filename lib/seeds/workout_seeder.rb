@@ -48,8 +48,7 @@ module Seeds
 
     # will want to be more clever about this
     def create_sets
-      drills = Drill.all
-      sets = Workout.all.map.with_index do |workout, index|
+      sets = workouts.map.with_index do |workout, index|
         { drill_id: drills[index].id, workout_id: workout.id, set_number: 1 }
       end
       WorkoutSetDrill.create!(sets)
