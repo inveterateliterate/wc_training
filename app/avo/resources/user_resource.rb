@@ -1,9 +1,9 @@
 class UserResource < Avo::BaseResource
   self.title = :full_name
   self.devise_password_optional = true
-  # self.search_query = ->(params:) do
-  #   scope.ransack(id_eq: params[:q], m: "or").result(distinct: false)
-  # end
+  self.search_query = -> (params:) do
+    scope.ransack(id_eq: params[:q], first_name_cont: params[:q], last_name_cont: params[:q], m: "or").result(distinct: false)
+  end
 
   # field :id, as: :id
   field :first_name, as: :text, sortable: true, required: true, placeholder: ''
