@@ -4,7 +4,6 @@ FactoryBot.define do
     drill_type { :conditioning }
     num_reps { 1 }
     distance_unit { :miles }
-    time_goal { 30 }
     description { '30 minutes at the fastest pace you can run' }
 
     ## add lifts too

@@ -8,7 +8,7 @@ class Drill < ApplicationRecord
 
   enum drill_type: {
     conditioning: 0,
-    liting: 1,
+    lifting: 1,
   }
 
   enum run_type: {
