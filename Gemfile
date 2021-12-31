@@ -34,6 +34,7 @@ gem 'tzinfo-data', platforms: %i[ mingw mswin x64_mingw jruby ]
 group :development, :test do
   gem 'bullet'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'fasterer'
   gem 'letter_opener'
   gem 'pry-byebug'
   gem 'pry-rails'
