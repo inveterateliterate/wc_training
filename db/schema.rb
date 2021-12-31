@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2021_12_30_010836) do
     t.integer "lift_type"
     t.float "distance"
     t.integer "distance_unit"
+    t.string "resistance_exercise"
     t.integer "rep_rest_time"
     t.integer "rep_rest_time_unit", default: 0
     t.float "time_goal"

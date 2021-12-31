@@ -1,12 +1,13 @@
 h1 Week #{@workout.week_num}
-p Today's workout
 
 
 .container
   .drill-type
-    - @workout.drills.group_by(&:drill_type).each do |drill_type, drills|
-      h2 = drill_type.titleize
-        /! h3 = drill.run_type&.titleize
+    - @circuits.each do |circuit_number, workout_drills|
+      /! not sure the best way to get this h2 value
+      h2 Conditioning
+      /! not crazy about this; might be a good op for draper / decorator
+      h3 = @circuits[circuit_number].first&.circuit_name
 
       table
         thead
@@ -17,11 +18,14 @@ p Today's workout
             th Description
 
         tbody
-          - drills.each do |drill|
+          - workout_drills.each do |workout_drill|
+            - drill = workout_drill.drill
             tr
               td = drill.num_reps
-              td = drill.distance
+              td = drill&.display_exercise
               td = drill.display_rep_rest
               td = drill.description
+
+
 
 

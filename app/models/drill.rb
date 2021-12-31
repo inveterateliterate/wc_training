@@ -38,6 +38,15 @@ class Drill < ApplicationRecord
     minutes: 1,
   }
 
+  def display_exercise
+    # can change to case if make other drill types
+    conditioning? ? display_distance : resistance_exercise
+  end
+
+  def display_distance
+    [distance, distance_unit].join(' ') if distance
+  end
+
   def display_rep_rest
     # can go in view helper
     [rep_rest_time, rep_rest_time_unit].join(' ') if rep_rest_time

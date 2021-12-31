@@ -24,6 +24,13 @@ class Workout < ApplicationRecord
   NUM_CONDITIONING_SET_REPS = 1 # do each set once
   NUM_LIFTING_SET_REPS = 3 # do each set 3 times (unless between sets)
 
+  def circuits
+    workout_drills
+      .joins(:drill)
+      .order(:circuit_number, :order_in_circuit)
+      .group_by(&:circuit_number)
+  end
+
   def title
     "Week #{week_num}: #{day_num.titleize}"
   end
