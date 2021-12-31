@@ -1,7 +1,7 @@
 ## Reviewer Details
 
 ### Items Addressed
-- Tast Description
+- Task Description
 
 ### QA Login Information
 - [Review App](www.reviewapp.com)

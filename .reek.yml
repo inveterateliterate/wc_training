@@ -1,11 +1,8 @@
-detectors:
+detectors: # for now don't care for describing core model classes and classes based on gem DSLs (well named)
   IrresponsibleModule:
     enabled: false
 
 directories:
-  # "app/models":
-  #   IrresponsibleModule: # don't care for describing core model classes
-  #     enabled: false
   "app/avo/filters": # uses avo DSL
     UtilityFunction:
       enabled: false
