@@ -1,7 +1,7 @@
 ## Reviewer Details
 
 ### Items Addressed
-- [Task description](www.asanatask.com)
+- Task Description
 
 ### QA Login Information
 - [Review App](www.reviewapp.com)

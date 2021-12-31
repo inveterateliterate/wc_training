@@ -7,6 +7,7 @@ class UserFilter < Avo::Filters::SelectFilter
     query.where(user_id: user_ids)
   end
 
+  # :reek:DuplicateMethodCall
   def options
     opts = {}
     User.all.each do |user|

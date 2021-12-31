@@ -1,0 +1,13 @@
+detectors: # for now don't care for describing core model classes and classes based on gem DSLs (well named)
+  IrresponsibleModule:
+    enabled: false
+
+directories:
+  "app/avo/filters": # uses avo DSL
+    UtilityFunction:
+      enabled: false
+
+exclude_paths:
+  - config/application.rb
+  - db/migrate
+  - .git-hooks/**/*.rb

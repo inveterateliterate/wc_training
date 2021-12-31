@@ -1,5 +1,6 @@
 module Seeds
-  class Seeder
+  module Seeder
+
     def run
       before_seed
       seed_db
@@ -16,16 +17,16 @@ module Seeds
     def clean_db
       puts '==========================================='
       puts "CLEANING #{formatted_seeder_name} MODELS"
-      models_to_clean.each { |table| table.destroy_all }
+      models_to_clean.each(&:destroy_all)
       puts "FINISHED CLEANING #{formatted_seeder_name} MODELS"
     end
 
     def models_to_clean
-      raise NotImplementedError, 'must be implemented by subclasses'
+      raise NotImplementedError, 'must be implemented by utility modules'
     end
 
     def seed_db
-      raise NotImplementedError, 'must be implemented by subclasses'
+      raise NotImplementedError, 'must be implemented by utility modules'
     end
 
     def after_seed
@@ -65,3 +66,4 @@ module Seeds
     end
   end
 end
+
