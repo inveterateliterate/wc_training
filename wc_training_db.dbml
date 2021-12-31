@@ -5,6 +5,19 @@ Project WCTraining {
   '''
 }
 
+Table AdminUser as AU {
+  id int [pk, increment] // auto-increment
+  first_name string [not null]
+  last_name string [not null]
+  email string [not null, unique]
+  password string [not null]
+  created_at timestamp
+  updated_at timestamp
+  Indexes {
+    (id) [pk]
+  }
+}
+
 Table User as U {
   id int [pk, increment] // auto-increment
   first_name string
@@ -20,6 +33,7 @@ Table User as U {
   }
 }
 
+// Enums for 'Workout' below
 Enum weekdays {
   sunday
   monday
@@ -99,6 +113,7 @@ Table Drill as D {
   lift_type lift_types
   distance integer // how to do the suicide set?
   distance_unit distance_units
+  resistance_exercise string
   rep_rest_time integer // seconds
   rest_time_unit rep_rest_time_units [default: 0] // enum to convert
   time_goal integer // minutes # can always convert
@@ -107,21 +122,6 @@ Table Drill as D {
   updated_at timestamp
   Indexes {
     (id) [pk]
-  }
-}
-
-// many <> many sets of drills
-// can alias the drill_type to this model to quickly categorize
-Table WorkoutSetDrills {
-  id int [pk, increment] // auto-increment
-  workout_id int [ref: > W.id]
-  drill_id int [ref: > D.id]
-  set_number integer // for a given number just care what set it is in
-  between_sets boolean [default: false] // used for scoping
-  created_at timestamp
-  updated_at timestamp
-  Indexes {
-    (id, workout_id, drill_id) [pk]
   }
 }
 
@@ -138,15 +138,25 @@ Table UserWorkoutDrill as UE {
   }
 }
 
-Table AdminUser as AU {
+Enum circuit_types {
+    conditioning
+    lifting
+    hybrid
+  }
+
+Table WorkoutDrill as WD {
   id int [pk, increment] // auto-increment
-  first_name string [not null]
-  last_name string [not null]
-  email string [not null, unique]
-  password string [not null]
+  drill_id int [ref: > D.id]
+  workout_id int [ref: > UW.id]
+  circuit_number integer
+  order_in_circuit integer
+  between_circuits boolean
+  // circuit_type circuit_types
+  circuit_name string // not most ideal here...
   created_at timestamp
   updated_at timestamp
   Indexes {
-    (id) [pk]
+    (id, drill_id, workout_id) [pk]
   }
 }
+

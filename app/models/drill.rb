@@ -1,6 +1,6 @@
 class Drill < ApplicationRecord
-  has_many :workout_set_drills
-  has_many :workout, through: :workout_set_drills
+  has_many :workout_drills
+  has_many :workout, through: :workout_drills
   has_many :user_workout_drills
   # has_many :users, through: :user_workout_drills
 
@@ -37,4 +37,18 @@ class Drill < ApplicationRecord
     seconds: 0,
     minutes: 1,
   }
+
+  def display_exercise
+    # can change to case if make other drill types
+    conditioning? ? display_distance : resistance_exercise
+  end
+
+  def display_distance
+    [distance, distance_unit].join(' ') if distance
+  end
+
+  def display_rep_rest
+    # can go in view helper
+    [rep_rest_time, rep_rest_time_unit].join(' ') if rep_rest_time
+  end
 end

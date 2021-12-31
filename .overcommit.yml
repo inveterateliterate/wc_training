@@ -34,6 +34,9 @@ PreCommit:
   Reek:
     enabled: true
 
+  SlimLint:
+    enabled: true
+
 CommitMsg:
   ALL:
     enabled: false

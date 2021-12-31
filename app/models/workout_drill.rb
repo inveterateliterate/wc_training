@@ -1,6 +1,8 @@
-class WorkoutSetDrill < ApplicationRecord
+class WorkoutDrill < ApplicationRecord
   belongs_to :workout
   belongs_to :drill
+
+  validates_presence_of :circuit_number, :order_in_circuit
 
   scope :conditioning, -> { joins(:drill).merge(Drill.conditioning) }
   scope :lifting, -> { joins(:drill).merge(Drill.lifting) }

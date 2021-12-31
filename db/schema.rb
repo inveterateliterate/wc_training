@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2021_12_30_010836) do
     t.integer "lift_type"
     t.float "distance"
     t.integer "distance_unit"
+    t.string "resistance_exercise"
     t.integer "rep_rest_time"
     t.integer "rep_rest_time_unit", default: 0
     t.float "time_goal"
@@ -81,15 +82,17 @@ ActiveRecord::Schema.define(version: 2021_12_30_010836) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "workout_set_drills", force: :cascade do |t|
+  create_table "workout_drills", force: :cascade do |t|
     t.bigint "workout_id", null: false
     t.bigint "drill_id", null: false
-    t.integer "set_number"
-    t.boolean "between_sets", default: false, null: false
+    t.integer "circuit_number", default: 1, null: false
+    t.integer "order_in_circuit", null: false
+    t.string "circuit_name"
+    t.boolean "between_circuits", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["drill_id"], name: "index_workout_set_drills_on_drill_id"
-    t.index ["workout_id"], name: "index_workout_set_drills_on_workout_id"
+    t.index ["drill_id"], name: "index_workout_drills_on_drill_id"
+    t.index ["workout_id"], name: "index_workout_drills_on_workout_id"
   end
 
   create_table "workouts", force: :cascade do |t|
@@ -103,6 +106,6 @@ ActiveRecord::Schema.define(version: 2021_12_30_010836) do
   add_foreign_key "user_workout_drills", "user_workouts"
   add_foreign_key "user_workouts", "users"
   add_foreign_key "user_workouts", "workouts"
-  add_foreign_key "workout_set_drills", "drills"
-  add_foreign_key "workout_set_drills", "workouts"
+  add_foreign_key "workout_drills", "drills"
+  add_foreign_key "workout_drills", "workouts"
 end

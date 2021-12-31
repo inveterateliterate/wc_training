@@ -6,6 +6,22 @@ directories:
   "app/avo/filters": # uses avo DSL
     UtilityFunction:
       enabled: false
+  "app/controllers":
+    InstanceVariableAssumption:
+      enabled: false
+  #   NestedIterators:
+  #     max_allowed_nesting: 2
+  #   UnusedPrivateMethod:
+  #     enabled: false
+  # "app/helpers":
+  #   UtilityFunction:
+  #     enabled: false
+  # "app/mailers":
+  #   InstanceVariableAssumption:
+  #     enabled: false
+  # "app/models":
+  #   InstanceVariableAssumption:
+  #     enabled: false
 
 exclude_paths:
   - config/application.rb
