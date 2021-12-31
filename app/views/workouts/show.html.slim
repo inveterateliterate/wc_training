@@ -9,22 +9,23 @@ h1 Week #{@workout.week_num}
       /! not crazy about this; might be a good op for draper / decorator
       h3 = @circuits[circuit_number].first&.circuit_name
 
-      table
-        thead
-          tr
-            th Num Reps
-            th Distance
-            th Rest Between Reps
-            th Description
+      - workout_drills.each do |workout_drill|
+        - drill = workout_drill.drill
+        - user_workout_drill = @user_workout.user_workout_drills.for_drill(drill)
 
-        tbody
-          - workout_drills.each do |workout_drill|
-            - drill = workout_drill.drill
-            tr
-              td = drill.num_reps
-              td = drill&.display_exercise
-              td = drill.display_rep_rest
-              td = drill.description
+        .drill-container
+          div
+            = drill.num_reps == 1 ? '' : drill.num_reps
+          div
+            = drill&.display_exercise
+          div
+            = drill.display_rep_rest
+          div
+            = drill.description
+          div
+            = link_to 'Edit', edit_workout_user_workout_drill_path, workout_id: @workout, id: user_workout_drill
+
+
 
 
 
