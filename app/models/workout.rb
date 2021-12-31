@@ -1,8 +1,8 @@
 class Workout < ApplicationRecord
   has_many :user_workouts
   has_many :users, through: :user_workouts
-  has_many :workout_set_drills
-  has_many :drills, through: :workout_set_drills
+  has_many :workout_drills
+  has_many :drills, through: :workout_drills
 
   validates_presence_of :week_num, :day_num
 
@@ -19,6 +19,8 @@ class Workout < ApplicationRecord
   scope :for_week, -> (week_num) { where(week_num: week_num) }
   scope :for_day, -> (day_num) { where(day_num: day_num) } # to be able to use across other models (might be another way?)
 
+  # can later add this to WorkoutDrill or something
+  # shoudl that table be renamed as Circuit?
   NUM_CONDITIONING_SET_REPS = 1 # do each set once
   NUM_LIFTING_SET_REPS = 3 # do each set 3 times (unless between sets)
 

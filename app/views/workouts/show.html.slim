@@ -1,0 +1,27 @@
+h1 Week #{@workout.week_num}
+p Today's workout
+
+
+.container
+  .drill-type
+    - @workout.drills.group_by(&:drill_type).each do |drill_type, drills|
+      h2 = drill_type.titleize
+        /! h3 = drill.run_type&.titleize
+
+      table
+        thead
+          tr
+            th Num Reps
+            th Distance
+            th Rest Between Reps
+            th Description
+
+        tbody
+          - drills.each do |drill|
+            tr
+              td = drill.num_reps
+              td = drill.distance
+              td = drill.display_rep_rest
+              td = drill.description
+
+

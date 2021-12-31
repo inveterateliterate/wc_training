@@ -1,4 +1,4 @@
-class WorkoutSetDrillResource < Avo::BaseResource
+class WorkoutDrillResource < Avo::BaseResource
   self.title = :id
   self.includes = [:drill, :workout]
   self.search_query = -> (params:) do
@@ -8,7 +8,9 @@ class WorkoutSetDrillResource < Avo::BaseResource
   # maybe don't actually need a form for this and / or the index - maybe just list on another page and the show page
   field :workout, as: :belongs_to, sortable: true # make select show the user and workout day
   field :drill, as: :belongs_to, sortable: true
-  field :set_number, as: :number
+  field :circuit_number, as: :number
+  field :order_in_circuit, as: :number
+  field :between_circuits, as: :boolean
 
   filter DrillTypeFilter
   filter WeekNumberFilter

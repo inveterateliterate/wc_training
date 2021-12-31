@@ -14,7 +14,7 @@ module Seeds
 
       def models_to_clean
         [
-          WorkoutSetDrill,
+          WorkoutDrill,
           Drill,
           Workout,
         ]
@@ -24,7 +24,7 @@ module Seeds
         [
           Workout,
           Drill,
-          WorkoutSetDrill,
+          WorkoutDrill,
         ]
       end
 
@@ -54,14 +54,14 @@ module Seeds
       # will want to be more clever about this
       def create_sets
         sets = WEEKDAYS.flat_map.with_index do |weekday, index|
-          workout_set_drils(weekday, index)
+          workout_drils(weekday, index)
         end
-        WorkoutSetDrill.create!(sets)
+        WorkoutDrill.create!(sets)
       end
 
-      def workout_set_drils(weekday, index)
+      def workout_drils(weekday, index)
         workouts.send(weekday).map do |workout|
-          { drill_id: drills[index].id, workout_id: workout.id, set_number: 1 }
+          FactoryBot.attributes_for(:workout_drill, drill_id: drills[index].id, workout_id: workout.id)
         end
       end
     end
