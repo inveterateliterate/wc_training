@@ -1,0 +1,3 @@
+ul
+  - workout_week.days_of_the_week.each do |day|
+    li = link_to day.titleize, user_user_workout_path(current_user, workout_week.workout_for_weekday(day).first)

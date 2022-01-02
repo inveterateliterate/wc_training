@@ -1,8 +1,6 @@
 class Drill < ApplicationRecord
   has_many :workout_drills
   has_many :workout, through: :workout_drills
-  has_many :user_workout_drills
-  # has_many :users, through: :user_workout_drills
 
   validates_presence_of :drill_type, :num_reps
 
