@@ -16,6 +16,8 @@
 # Uncomment the following lines to make the configuration take effect.
 
 PreCommit:
+
+  # add CodeSpellCheck?
   RuboCop:
     enabled: true
     on_warn: fail # Treat all warnings as failures
@@ -35,6 +37,7 @@ PreCommit:
     enabled: true
 
   SlimLint:
+    flags: ['--config="config/.slim-lint.yml"']
     enabled: true
 
 CommitMsg:
