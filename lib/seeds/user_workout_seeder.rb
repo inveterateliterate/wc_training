@@ -49,7 +49,7 @@ module Seeds
 
       def user_workout_drills_hash(user_workout)
         user_workout.workout.workout_drills.pluck(:id).map do |workout_drill_id|
-          { user_id: user_workout.user_id, workout_drill_id: workout_drill_id }
+          { user_workout_id: user_workout.id, workout_drill_id: workout_drill_id }
         end
       end
 

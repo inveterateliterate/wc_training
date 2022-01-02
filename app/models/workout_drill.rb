@@ -12,4 +12,5 @@ class WorkoutDrill < ApplicationRecord
 
   scope :for_week, -> (week_num) { joins(:workout).merge(Workout.for_week(week_num)) }
   scope :for_day, -> (day_num) { joins(:workout).merge(Workout.for_day(day_num)) }
+  scope :for_drill, -> (drill) { where(drill_id: drill.id) }
 end

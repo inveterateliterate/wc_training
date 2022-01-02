@@ -18,8 +18,8 @@ Rails.application.routes.draw do
     root to: 'users#dashboard', as: :authenticated_root
   end
 
-  resources :user_workouts, only: [:show, :edit, :update]
-  resources :users, only: %i(show update edit) do
-    resources :user_workout_drills, only: %i(show update edit)
+  resources :users, only: %i(show update edit)
+  resources :user_workouts, only: %i(show update edit) do
+    resources :user_workout_drills, only: %i(edit update)
   end
 end

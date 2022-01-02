@@ -1,11 +1,6 @@
 class UserWorkoutDrill < ApplicationRecord
-  belongs_to :user
+  belongs_to :user_workout
   belongs_to :workout_drill
 
-  # scope :for_user, -> (user) { where(user_id: user.id) }
-
-  # this can not workout if repeating the program over time...
-  def self.for_user(user)
-    find_by(user_id: user.id)
-  end
+  scope :for_drill, -> (drill) { joins(:workout_drill).merge(WorkoutDrill.for_drill(drill)) }
 end

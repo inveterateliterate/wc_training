@@ -1,0 +1,6 @@
+= turbo_frame_tag 'user_workout_drill_notes'
+  = form_with(model: @user_workout_drill, url: user_workout_user_workout_drill_path) do |form|
+    = form.text_field :notes
+    = form.submit 'Save'
+
+  = link_to 'Cancel', user_workout_path(@user_workout), "data-turbo-frame": "_top"

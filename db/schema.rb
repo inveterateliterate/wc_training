@@ -47,12 +47,12 @@ ActiveRecord::Schema.define(version: 2022_01_02_200734) do
   end
 
   create_table "user_workout_drills", force: :cascade do |t|
-    t.bigint "user_id", null: false
+    t.bigint "user_workout_id", null: false
     t.bigint "workout_drill_id", null: false
     t.text "notes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_user_workout_drills_on_user_id"
+    t.index ["user_workout_id"], name: "index_user_workout_drills_on_user_workout_id"
     t.index ["workout_drill_id"], name: "index_user_workout_drills_on_workout_drill_id"
   end
 
@@ -102,7 +102,7 @@ ActiveRecord::Schema.define(version: 2022_01_02_200734) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "user_workout_drills", "users"
+  add_foreign_key "user_workout_drills", "user_workouts"
   add_foreign_key "user_workout_drills", "workout_drills"
   add_foreign_key "user_workouts", "users"
   add_foreign_key "user_workouts", "workouts"

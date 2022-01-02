@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :user_workout_drill do
-    user
+    user_workout
     workout_drill
     notes { "MyText" }
   end

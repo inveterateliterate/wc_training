@@ -10,7 +10,7 @@ h1 Week #{@user_workout.week_num}
 
       - workout_drills.each do |workout_drill|
         - drill = workout_drill.drill
-        - user_workout_drill = workout_drill.user_workout_drills.for_user(current_user)
+        - user_workout_drill = @user_workout.user_workout_drills.for_drill(drill).first
 
         .drill-container
           div
@@ -21,7 +21,8 @@ h1 Week #{@user_workout.week_num}
             = drill.display_rep_rest
           div
             = drill.description
-          div
-            = user_workout_drill.notes
-          div
-            = link_to 'Edit', edit_user_user_workout_drill_path(user_id: current_user.id, id: user_workout_drill.id)
+          = turbo_frame_tag 'user_workout_drill_notes'
+            div
+              = user_workout_drill.notes
+            div
+              = link_to 'Edit', edit_user_workout_user_workout_drill_path(user_workout_id: @user_workout.id, id: user_workout_drill.id)
