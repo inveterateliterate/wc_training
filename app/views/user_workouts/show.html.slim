@@ -1,5 +1,4 @@
-h1 Week #{@workout.week_num}
-
+h1 Week #{@user_workout.week_num}
 
 .container
   .drill-type
@@ -20,12 +19,10 @@ h1 Week #{@workout.week_num}
         tbody
           - workout_drills.each do |workout_drill|
             - drill = workout_drill.drill
+            - user_workout_drill = workout_drill.user_workout_workout_drills.for_user(current_user)
             tr
               td = drill.num_reps
               td = drill&.display_exercise
               td = drill.display_rep_rest
               td = drill.description
-
-
-
-
+              td = user_workout_drill.notes

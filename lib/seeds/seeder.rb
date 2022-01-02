@@ -48,7 +48,7 @@ module Seeds
     end
 
     def formatted_seeder_name
-      @formatted_seeder_name ||= self.class.name.demodulize.underscore.upcase
+      @formatted_seeder_name ||= name.demodulize.underscore.upcase.tr('_', ' ')
     end
 
     ## HELPERS AND COMMON ATTRIBUTES CAN GO BELOW
