@@ -2,8 +2,8 @@ class WorkoutDrill < ApplicationRecord
   belongs_to :workout
   belongs_to :drill
 
-  has_many :user_workout_workout_drills
-  has_many :users, through: :user_workout_workout_drills
+  has_many :user_workout_drills
+  has_many :users, through: :user_workout_drills
 
   validates_presence_of :circuit_number, :order_in_circuit
 

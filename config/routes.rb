@@ -19,5 +19,7 @@ Rails.application.routes.draw do
   end
 
   resources :user_workouts, only: [:show, :edit, :update]
-  resources :users, only: %i(show update edit)
+  resources :users, only: %i(show update edit) do
+    resources :user_workout_drills, only: %i(show update edit)
+  end
 end

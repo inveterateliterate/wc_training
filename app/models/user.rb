@@ -7,8 +7,8 @@ class User < ApplicationRecord
 
   has_many :user_workouts
   has_many :workouts, through: :user_workouts
-  has_many :user_workout_workout_drills
-  has_many :workout_drills, through: :user_workout_workout_drills
+  has_many :user_workout_drills
+  has_many :workout_drills, through: :user_workout_drills
 
   validates_presence_of :email
   validates_uniqueness_of :email

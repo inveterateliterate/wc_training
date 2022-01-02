@@ -5,6 +5,6 @@ RSpec.describe UserWorkoutDrill, type: :model do
 
   it { is_expected.to be_valid }
 
-  it { is_expected.to belong_to(:user_workout) }
-  it { is_expected.to belong_to(:drill) }
+  it { is_expected.to belong_to(:user) }
+  it { is_expected.to belong_to(:workout_drill) }
 end

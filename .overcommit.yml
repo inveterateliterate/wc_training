@@ -37,7 +37,7 @@ PreCommit:
     enabled: true
 
   SlimLint:
-    flags: ['--config="config/.slim-lint.yml"']
+    flags: ['--config=config/.slim-lint.yml']
     enabled: true
 
 CommitMsg:

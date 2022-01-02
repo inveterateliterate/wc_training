@@ -13,14 +13,13 @@ module Seeds
         [
           UserWorkout,
           UserWorkoutDrill,
-          UserWorkoutWorkoutDrill,
         ]
       end
 
       def models_seeded
         [
           UserWorkout,
-          UserWorkoutWorkoutDrill,
+          UserWorkoutDrill,
         ]
       end
 
@@ -45,7 +44,7 @@ module Seeds
         user_workout_drills_array = @user_workouts.flat_map do |user_workout|
           user_workout_drills_hash(user_workout)
         end
-        UserWorkoutWorkoutDrill.create!(user_workout_drills_array)
+        UserWorkoutDrill.create!(user_workout_drills_array)
       end
 
       def user_workout_drills_hash(user_workout)
