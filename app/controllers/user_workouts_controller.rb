@@ -2,6 +2,6 @@ class UserWorkoutsController < ApplicationController
   def show
     @user_workout = UserWorkout.find(params[:id])
     @circuits = @user_workout.workout.circuits
-    @week = UserWorkoutWeek.new(user_workout: @user_workout, user: current_user)
+    @workout_week = UserWorkoutWeek.new(user_workout: @user_workout, user: current_user)
   end
 end

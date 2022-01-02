@@ -10,6 +10,7 @@ class UserWorkout < ApplicationRecord
   scope :for_user, -> (user) { where(user_id: user.id) }
   scope :for_workout, -> (workout) { where(workout_id: workout.id) }
   scope :for_week, -> (week_num) { joins(:workout).merge(Workout.for_week(week_num)) }
+  scope :for_day, -> (day_num) { joins(:workout).merge(Workout.for_day(day_num)) }
 
   delegate :week_num, to: :workout
 end

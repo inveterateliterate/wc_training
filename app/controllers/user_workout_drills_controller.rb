@@ -6,7 +6,7 @@ class UserWorkoutDrillsController < ApplicationController
     @user_workout_drill.update(user_workout_drill_params)
 
     respond_to do |format|
-      format.html { redirect_to @user_workout}
+      format.html { redirect_to user_user_workout_path(current_user, @user_workout) }
     end
   end
 

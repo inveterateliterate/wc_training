@@ -11,6 +11,10 @@ class UserWorkoutWeek
     weeks_user_workouts.pluck(:day_num)
   end
 
+  def workout_for_weekday(day)
+    weeks_user_workouts.for_day(day)
+  end
+
   def weeks_user_workouts
     @weeks_user_workouts ||= UserWorkout.for_user(user).for_week(user_workout.workout.week_num)
   end

@@ -1,5 +1,7 @@
 h1 Week #{@user_workout.week_num}
 
+aside.side-nav
+  = render partial: 'side_nav', locals: { workout_week: @workout_week }
 .container
   .drill-type
     - @circuits.each do |circuit_number, workout_drills|
@@ -25,4 +27,4 @@ h1 Week #{@user_workout.week_num}
             div
               = user_workout_drill.notes
             div
-              = link_to 'Edit', edit_user_workout_user_workout_drill_path(user_workout_id: @user_workout.id, id: user_workout_drill.id)
+              = link_to 'Edit', edit_user_workout_drill_path(user_workout_id: @user_workout.id, id: user_workout_drill.id)
