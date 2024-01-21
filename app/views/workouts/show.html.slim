@@ -1,6 +1,5 @@
 h1 Week #{@workout.week_num}
 
-
 .container
   .drill-type
     - @circuits.each do |circuit_number, workout_drills|
@@ -24,9 +23,3 @@ h1 Week #{@workout.week_num}
             = drill.description
           div
             = link_to 'Edit', edit_workout_user_workout_drill_path, workout_id: @workout, id: user_workout_drill
-
-
-
-
-
-
