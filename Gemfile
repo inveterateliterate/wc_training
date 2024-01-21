@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.0.3'
+ruby '3.3.0'
 
-gem 'avo'
+gem 'activeadmin'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', require: false
 gem 'danger'
@@ -17,9 +17,9 @@ gem 'importmap-rails'
 gem 'jbuilder'
 # gem 'paper_trail'
 gem 'pg', '~> 1.1'
-gem 'puma', '~> 5.0'
+gem 'puma', '~> 6.0'
 gem 'ransack'
-gem 'rails', '~> 7.0.0'
+gem 'rails', '7.1.2'
 gem 'redis', '~> 4.0'
 gem 'slim-rails'
 gem 'sprockets-rails'
@@ -56,6 +56,7 @@ group :development do
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec', require: false
+  gem 'slim_lint'
   gem 'web-console'
   # gem 'rack-mini-profiler'
 end

@@ -1,0 +1,5 @@
+nav
+  .nav-contents
+    ul.menu
+      li.menu-item = link_to 'Profile', user_path(current_user)
+      li.menu-item = button_to 'Sign Out', destroy_user_session_path, method: :delete

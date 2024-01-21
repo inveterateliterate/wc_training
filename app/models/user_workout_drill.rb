@@ -1,8 +1,6 @@
 class UserWorkoutDrill < ApplicationRecord
   belongs_to :user_workout
-  belongs_to :drill
+  belongs_to :workout_drill
 
-  def self.for_drill(drill)
-    find_by(drill_id: drill.id)
-  end
+  scope :for_drill, -> (drill) { joins(:workout_drill).merge(WorkoutDrill.for_drill(drill)) }
 end

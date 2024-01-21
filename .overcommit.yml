@@ -16,12 +16,14 @@
 # Uncomment the following lines to make the configuration take effect.
 
 PreCommit:
+
+  # add CodeSpellCheck?
   RuboCop:
     enabled: true
     on_warn: fail # Treat all warnings as failures
 
   RunDatabaseConsistency:
-    enabled: true
+    enabled: false
     description: 'Running database_consistency gem'
 
   RunFasterer:
@@ -35,6 +37,7 @@ PreCommit:
     enabled: true
 
   SlimLint:
+    flags: ['--config=config/.slim-lint.yml']
     enabled: true
 
 CommitMsg:

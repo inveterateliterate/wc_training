@@ -1,0 +1,30 @@
+h1 Week #{@user_workout.week_num}
+
+aside.side-nav
+  = render partial: 'side_nav', locals: { workout_week: @workout_week }
+.container
+  .drill-type
+    - @circuits.each do |circuit_number, workout_drills|
+      /! not sure the best way to get this h2 value
+      h2 Conditioning
+      /! not crazy about this; might be a good op for draper / decorator
+      h3 = @circuits[circuit_number].first&.circuit_name
+
+      - workout_drills.each do |workout_drill|
+        - drill = workout_drill.drill
+        - user_workout_drill = @user_workout.user_workout_drills.for_drill(drill).first
+
+        .drill-container
+          div
+            = drill.num_reps == 1 ? '' : drill.num_reps
+          div
+            = drill&.display_exercise
+          div
+            = drill.display_rep_rest
+          div
+            = drill.description
+          = turbo_frame_tag 'user_workout_drill_notes'
+            div
+              = user_workout_drill.notes
+            div
+              = link_to 'Edit', edit_user_workout_drill_path(user_workout_id: @user_workout.id, id: user_workout_drill.id)

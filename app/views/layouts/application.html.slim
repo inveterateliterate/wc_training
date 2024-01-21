@@ -2,8 +2,12 @@ doctype html
 html
   head
     title WC Training
-    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    meta name="viewport" content="width=device-width,initial-scale=1"
+    = stylesheet_link_tag 'application', 'data-data-track': 'reload'
+    = javascript_importmap_tags
     = csrf_meta_tags
+    = csp_meta_tag
   body
+    - if user_signed_in?
+      = render partial: 'shared/profile_nav'
     = yield
