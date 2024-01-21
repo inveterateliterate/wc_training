@@ -3,40 +3,7 @@
 
 // Font Families
 
-$primary-sans-serif: Inter, sans-serif;
-
-
-// if want more and special imports:
-// @font-face {
-//       font-family: 'Eagle-Light';
-//       src: url('../fonts/Eagle-Light.otf') format('otf'),
-//           url('../fonts/Eagle-Light.woff') format('woff');
-//     }
-
-//     @font-face {
-//       font-family: 'Eagle-Bold';
-//       src: url('../fonts/Eagle-Bold.otf') format('otf'),
-//           url('../fonts/Eagle-Bold.woff') format('woff');
-//   }
-
-//     @font-face {
-//       font-family: 'ClarendonBT-Light';
-//       src: url('../fonts/ClarendonBT-Light.otf') format('otf'),
-//           url('../fonts/ClarendonBT-Light.woff') format('woff');
-//     }
-
-//     @font-face {
-//       font-family: 'ClarendonBT-Bold';
-//       src: url('../fonts/ClarendonBT-Bold.otf') format('otf'),
-//           url('../fonts/ClarendonBT-Bold.woff') format('woff');
-//     }
-
-//     $primary-sans-serif: 'Eagle-Light', sans-serif;
-//     $secondary-sans-serif: 'Eagle-Bold', sans-serif;
-//     $primary-serif: 'ClarendonBT-Light', serif;
-//     $secondary-serif: 'ClarendonBT-Bold', serif;
-
-
+$primary-sans-serif: 'Poppins', sans-serif;
 
 // Sizes
 $font-size-base: 14px;
@@ -60,4 +27,5 @@ $base-line-small:  $font-size-base;
 // Font Weights
 $regular: 400;
 $medium: 500;
+$semibold: 600;
 $bold: 700;
