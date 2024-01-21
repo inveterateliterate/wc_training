@@ -5,9 +5,11 @@ RSpec.describe User, type: :model do
 
   it { is_expected.to be_valid }
 
-  it { is_expected.to validate_presence_of(:email) }
+  it { is_expected.to have_many(:user_programs) }
+  it { is_expected.to have_many(:user_workouts) }
+  it { is_expected.to have_many(:workouts).through(:user_workouts) }
+  it { is_expected.to have_many(:user_drills) }
+  it { is_expected.to have_many(:drills).through(:user_drills) }
 
-  # it 'should randomly succeed', retry: 3 do
-  #   expect(rand(2)).to eq(1)
-  # end
+  it { is_expected.to validate_presence_of(:email) }
 end

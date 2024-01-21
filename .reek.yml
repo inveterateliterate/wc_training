@@ -3,9 +3,6 @@ detectors: # for now don't care for describing core model classes and classes ba
     enabled: false
 
 directories:
-  "app/avo/filters": # uses avo DSL
-    UtilityFunction:
-      enabled: false
   "app/controllers":
     InstanceVariableAssumption:
       enabled: false

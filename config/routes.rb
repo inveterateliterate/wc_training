@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :admin_users
-
-  authenticate :admin_user do
-    mount Avo::Engine, at: Avo.configuration.root_path
-  end
+  ActiveAdmin.routes(self)
+  devise_for :admin_users, ActiveAdmin::Devise.config
 
   devise_for :users
 
@@ -14,6 +11,10 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :workouts, only: [:show] do
+    resources :user_drills, only: [:show, :edit, :update]
+  end
+
   authenticated :user do
     root to: 'users#dashboard', as: :authenticated_root
   end
@@ -21,6 +22,4 @@ Rails.application.routes.draw do
   resources :users, only: %i(show update edit) do
     resources :user_workouts, only: %i(show update edit)
   end
-
-  resources :user_workout_drills, only: %i(edit update)
 end

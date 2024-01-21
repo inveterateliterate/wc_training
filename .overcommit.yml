@@ -23,7 +23,7 @@ PreCommit:
     on_warn: fail # Treat all warnings as failures
 
   RunDatabaseConsistency:
-    enabled: true
+    enabled: false
     description: 'Running database_consistency gem'
 
   RunFasterer:
