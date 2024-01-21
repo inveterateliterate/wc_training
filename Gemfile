@@ -65,7 +65,7 @@ group :test do
   gem 'database_cleaner'
   gem 'rspec-collection_matchers'
   gem 'rspec-retry'
-  gem 'shoulda-matchers', '~> 3.1'
+  gem 'shoulda-matchers'
   gem 'simplecov'
   # gem 'capybara'
   # gem 'selenium-webdriver'
