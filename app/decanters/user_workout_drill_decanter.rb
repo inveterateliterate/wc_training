@@ -1,3 +1,3 @@
-class UserWorkoutDrillDecanter < Decanter::Base
+class UserDrillDecanter < Decanter::Base
   input :notes
 end
