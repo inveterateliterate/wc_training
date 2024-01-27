@@ -1,0 +1,73 @@
+{
+  "name": "Parse and align with schema",
+  "description": "Extract data from the file and align the contents to the schema below",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "workouts": {
+        "type": "array",
+        "description": "The workouts found in the document",
+        "items": {
+          "type": "object",
+          "properties": {
+            "day_num": {
+              "type": "number",
+              "description": "The number of the day of the week (1 is Monday)"
+            },
+            "week_num": {
+              "type": "number",
+              "description": "The week number of the workout (found in the title)"
+            },
+            "circuits": {
+              "type": "array",
+              "description": "The circuits (groupings) of the drills",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "position": {
+                    "type": "number",
+                    "description": "the position of the circuit within the workout"
+                  },
+                  "num_reps": {
+                    "type": "number",
+                    "description": "the number of times to perform the circuit"
+                  },
+                  "drills": {
+                    "type": "array",
+                    "description": "The drills within the circuit",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "position": {
+                          "type": "number",
+                          "description": "the position of the drill within the circuit"
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "The overall name for the drill"
+                        },
+                        "num_reps": {
+                          "type": "number",
+                          "description": "the number of times to perform the drill"
+                        },
+                        "exercise_type": {
+                          "type": "string",
+                          "description": "Whether it's a `conditioning` (running) drill or a `lifting` (resistance) drill"
+                        },
+                        "description": {
+                          "type": "string",
+                          "description": "the name and description of the drill, not including the general name or title of the drill"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "required": ["workouts"]
+  }
+}
