@@ -3,66 +3,63 @@ module Seeds
     class << self
       include Seeder
 
-      NUM_WEEKS = 12
-      WEEKDAYS = %i(monday tuesday wednesday thursday friday)
-
       def seed_db
-        create_workouts
-        create_drills
-        create_sets
+        @program = create_program
+        seed_workouts
       end
 
       def models_to_clean
         [
-          WorkoutDrill,
+          UserDrill,
+          UserWorkout,
           Drill,
+          Circuit,
           Workout,
+          Program
         ]
       end
 
       def models_seeded
         [
           Workout,
+          Circuit,
           Drill,
-          WorkoutDrill,
+          Program
         ]
       end
 
-      def create_workouts
-        workouts_array = Array.new(NUM_WEEKS) { |num| week_workout(num) }.flatten
-        Workout.create!(workouts_array)
+      def create_program
+        Program.create(FactoryBot.attributes_for(:program))
       end
 
-      def week_workout(num)
-        WEEKDAYS.map do |day_num|
-          FactoryBot.attributes_for(:workout, week_num: num + 1, day_num: day_num)
+      def seed_workouts
+        (1..12).to_a.each { |week_num| create_workout(week_num) }
+      end
+
+      def create_workout(week_num)
+        workout_data(week_num).each do |workout_info|
+          workout = @program.workouts.find_or_create_by(workout_info.except('circuits'))
+          create_circuits(workout, workout_info)
         end
       end
 
-      def create_drills
-        create_conditioning_drills
-        # create_lifting_drills
+      def create_circuits(workout, workout_info)
+        workout_info['circuits'].each do |circuit_info|
+          circuit = workout.circuits.create!(circuit_info.except('drills'))
+          create_drills(circuit, circuit_info)
+        end
       end
 
-      def create_conditioning_drills
-        cs_drills = Drill.run_types.keys.map do |run_type|
-          FactoryBot.attributes_for(:drill, run_type)
+      def create_drills(circuit, circuit_info)
+        circuit_info['drills'].each do |drill_info|
+          circuit.drills.create!(drill_info)
         end
-        Drill.create!(cs_drills)
       end
 
-      # will want to be more clever about this
-      def create_sets
-        sets = WEEKDAYS.flat_map.with_index do |weekday, index|
-          workout_drils(weekday, index)
-        end
-        WorkoutDrill.create!(sets)
-      end
-
-      def workout_drils(weekday, index)
-        workouts.send(weekday).map do |workout|
-          FactoryBot.attributes_for(:workout_drill, drill_id: drills[index].id, workout_id: workout.id)
-        end
+      def workout_data(week_num)
+        file_path = "#{Rails.root}/lib/seeds/workouts/week_#{week_num}.json"
+        file = File.read(file_path)
+        JSON.parse(file)['workouts']
       end
     end
   end

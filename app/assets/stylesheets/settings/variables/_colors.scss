@@ -1,0 +1,90 @@
+//MAIN COLORS - update with own pallete, etc.
+$another-green: #41F2F2;
+
+
+
+  //BLACK
+    $black-light:  #44525A;
+    $black-base:   #444444;
+    $black-dark:   #15191C;
+
+  //BLUE
+    // $blue-light:   #EFF3F6;
+    // $blue-med:     #DFE4E8;
+    // $blue-bright:  #006faa;
+    $blue-base:    #458ADB;
+    // $blue-emp:     #0076A9;
+    $blue-dark:    darken($blue-base, 10%);
+
+  // PINK
+  $pink-base: #D650EB;
+
+  /// PURPLE
+  $purple-base: #6B41F2;
+
+  //GREEN
+    // $green-light:  #EAF2EB;
+    $green-base:   #3FE87A;
+    $green-dark:   darken($green-base, 10%);
+
+  //GREY
+    $grey-light:   #EFEFEF;
+    $grey-base:    #898B8E;
+    $grey-dark:    darken($grey-base, 10%);
+
+  // //GREY
+  //   $greyish-blue-base: #ACB5AF;
+  //   $greyish-blue-dark: darken($greyish-blue-base, 2%);
+
+  //RED
+    $red-light:    #F8D6D6;
+    $red-base:     #b54f4f;
+    $red-dark:     darken($red-base, 10%);
+
+  // //YELLOW
+  //   $yellow-light: #F9EDDD;
+  //   $yellow-base:  #DC8E2B;
+  //   $yellow-dark:  darken($yellow-base, 10%);
+
+  //WHITE
+    $white-light:  #F4F6F6;
+    $white-base:   #FFFFFF;
+    $white-dark:   #9B9B9B;
+
+
+    $tan-base:  #C4A57B;
+    $tan-dark:  darken($tan-base, 10%);
+    $primary-color: $tan-base;
+
+    //PRIMARY
+  $primary-base: $blue-base;
+  $primary-dark: darken($primary-base, 10%);
+
+//SECONDARY
+  $secondary-base: $pink-base;
+  $secondary-dark: darken($secondary-base, 10%);
+
+
+
+  // //MAIN PALETTE LIST
+  // $colors: (
+  //   black-light   $black-light,
+  //   black-base    $black-base,
+  //   black-dark    $black-dark,
+  //   blue-base     $blue-base,
+  //   blue-dark     $blue-dark,
+  //   grey-light    $grey-light,
+  //   grey-base     $grey-base,
+  //   grey-dark     $grey-dark,
+  //   green-base    $green-base,
+  //   green-dark    $green-dark,
+  //   red-light     $red-light,
+  //   red-base      $red-base,
+  //   red-dark      $red-dark,
+  //   yellow-light  $yellow-light,
+  //   yellow-base   $yellow-base,
+  //   yellow-dark   $yellow-dark,
+  //   white-light   $white-light,
+  //   white-base    $white-base,
+  //   white-dark    $white-dark
+  // );
