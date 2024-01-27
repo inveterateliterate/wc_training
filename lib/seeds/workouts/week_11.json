@@ -1,0 +1,548 @@
+{
+  "workouts": [
+    {
+      "day_num": 1,
+      "week_num": 11,
+      "circuits": [
+        {
+          "position": 1,
+          "num_reps": 1,
+          "drills": [
+            {
+              "name": "Long Run",
+              "position": 1,
+              "num_reps": 1,
+              "exercise_type": "conditioning",
+              "description": "45 minutes at the fastest pace you can run (Track the distance)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day_num": 2,
+      "week_num": 11,
+      "circuits": [
+        {
+          "position": 1,
+          "num_reps": 1,
+          "drills": [
+            {
+              "name": "100's",
+              "position": 1,
+              "num_reps": 25,
+              "exercise_type": "conditioning",
+              "description": "100's each in 1 minute (20 seconds for the 100yd sprint, and 40 seconds recovery to jog back) This should take a total of 10 consecutive minutes"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day_num": 3,
+      "week_num": 11,
+      "circuits": [
+        {
+          "position": 1,
+          "num_reps": 1,
+          "drills": [
+            {
+              "name": "Speed Training",
+              "position": 1,
+              "num_reps": 10,
+              "exercise_type": "conditioning",
+              "description": "60 yard sprints with 20 seconds rest in between each 1 minute rest"
+            },
+            {
+              "name": "Speed Training",
+              "position": 2,
+              "num_reps": 12,
+              "exercise_type": "conditioning",
+              "description": "40 yard sprints with 15 seconds rest in between each 1 minute rest"
+            },
+            {
+              "name": "Speed Training",
+              "position": 3,
+              "num_reps": 14,
+              "exercise_type": "conditioning",
+              "description": "20 yard sprints with 10 seconds rest in between each 2 minute rest"
+            },
+            {
+              "name": "Speed Training",
+              "position": 4,
+              "num_reps": 8,
+              "exercise_type": "conditioning",
+              "description": "5/10/15 shuttles with 15 seconds rest in between each Sprint out 5, back 5, out 10, back 10, out 15, back 15 for a total of 60 yards"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day_num": 4,
+      "week_num": 11,
+      "circuits": [
+        {
+          "position": 1,
+          "num_reps": 1,
+          "drills": [
+            {
+              "name": "300's",
+              "position": 1,
+              "num_reps": 6,
+              "exercise_type": "conditioning",
+              "description": "300's with 2 minutes rest in between each 25 yards up and back 6 times"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day_num": 5,
+      "week_num": 11,
+      "circuits": [
+        {
+          "position": 1,
+          "num_reps": 1,
+          "drills": [
+            {
+              "name": "One-mile",
+              "position": 1,
+              "num_reps": 2,
+              "exercise_type": "conditioning",
+              "description": "One mile in 7:30 with 6 min rest in between each"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day_num": 1,
+      "week_num": 11,
+      "circuits": [
+        {
+          "position": 2,
+          "num_reps": 3,
+          "drills": [
+            {
+              "position": 1,
+              "name": "Legs, Back, and Abs",
+              "num_reps": 15,
+              "exercise_type": "lifting",
+              "description": "Leg Press"
+            },
+            {
+              "position": 2,
+              "name": "Legs, Back, and Abs",
+              "num_reps": 15,
+              "exercise_type": "lifting",
+              "description": "Supermans"
+            },
+            {
+              "position": 3,
+              "name": "Legs, Back, and Abs",
+              "num_reps": 20,
+              "exercise_type": "lifting",
+              "description": "Runners (Abs) – 20 each"
+            }
+          ]
+        },
+        {
+          "position": 3,
+          "num_reps": 1,
+          "drills": [
+            {
+              "position": 1,
+              "name": "Between circuits",
+              "num_reps": 1,
+              "exercise_type": "lifting",
+              "description": "200 Jump Rope (Substitute 500 Urgs on a rowing machine or a ¼ mile run)"
+            }
+          ]
+        },
+        {
+          "position": 4,
+          "num_reps": 3,
+          "drills": [
+            {
+              "position": 1,
+              "name": "Legs, Back, and Abs",
+              "num_reps": 20,
+              "exercise_type": "lifting",
+              "description": "Leg Curls"
+            },
+            {
+              "position": 2,
+              "name": "Legs, Back, and Abs",
+              "num_reps": 15,
+              "exercise_type": "lifting",
+              "description": "Lat Pulldowns"
+            },
+            {
+              "position": 3,
+              "name": "Legs, Back, and Abs",
+              "num_reps": 15,
+              "exercise_type": "lifting",
+              "description": "Around the World (Abs)"
+            }
+          ]
+        },
+        {
+          "position": 5,
+          "num_reps": 1,
+          "drills": [
+            {
+              "position": 1,
+              "name": "Between circuits",
+              "num_reps": 1,
+              "exercise_type": "lifting",
+              "description": "200 Jump Rope (Substitute 500 Urgs on a rowing machine or a ¼ mile run)"
+            }
+          ]
+        },
+        {
+          "position": 6,
+          "num_reps": 3,
+          "drills": [
+            {
+              "position": 1,
+              "name": "Legs, Back, and Abs",
+              "num_reps": 20,
+              "exercise_type": "lifting",
+              "description": "Box Jumps"
+            },
+            {
+              "position": 2,
+              "name": "Legs, Back, and Abs",
+              "num_reps": 20,
+              "exercise_type": "lifting",
+              "description": "Seated Row"
+            },
+            {
+              "position": 3,
+              "name": "Legs, Back, and Abs",
+              "num_reps": 10,
+              "exercise_type": "lifting",
+              "description": "Burpees"
+            }
+          ]
+        },
+        {
+          "position": 7,
+          "num_reps": 1,
+          "drills": [
+            {
+              "position": 1,
+              "name": "Between circuits",
+              "num_reps": 1,
+              "exercise_type": "lifting",
+              "description": "200 Jump Rope (Substitute 500 Urgs on a rowing machine or a ¼ mile run)"
+            }
+          ]
+        },
+        {
+          "position": 8,
+          "num_reps": 3,
+          "drills": [
+            {
+              "position": 1,
+              "name": "Legs, Back, and Abs",
+              "num_reps": 20,
+              "exercise_type": "lifting",
+              "description": "Squat Jumps"
+            },
+            {
+              "position": 2,
+              "name": "Legs, Back, and Abs",
+              "num_reps": 12,
+              "exercise_type": "lifting",
+              "description": "Strap Pull-ups"
+            },
+            {
+              "position": 3,
+              "name": "Legs, Back, and Abs",
+              "num_reps": 1,
+              "exercise_type": "lifting",
+              "description": "Plank – 1 minute"
+            }
+          ]
+        },
+        {
+          "position": 9,
+          "num_reps": 1,
+          "drills": [
+            {
+              "position": 1,
+              "name": "Between circuits",
+              "num_reps": 1,
+              "exercise_type": "lifting",
+              "description": "200 Jump Rope (Substitute 500 Urgs on a rowing machine or a ¼ mile run)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day_num": 3,
+      "week_num": 11,
+      "circuits": [
+        {
+          "position": 2,
+          "num_reps": 3,
+          "drills": [
+            {
+              "position": 1,
+              "name": "Arms, Chest, and Abs",
+              "num_reps": 10,
+              "exercise_type": "lifting",
+              "description": "Bench Press with bar and weight"
+            },
+            {
+              "position": 2,
+              "name": "Arms, Chest, and Abs",
+              "num_reps": 15,
+              "exercise_type": "lifting",
+              "description": "Tricep Extensions"
+            },
+            {
+              "position": 3,
+              "name": "Arms, Chest, and Abs",
+              "num_reps": 2,
+              "exercise_type": "lifting",
+              "description": "Side Plank – 30 seconds each side"
+            }
+          ]
+        },
+        {
+          "position": 3,
+          "num_reps": 1,
+          "drills": [
+            {
+              "position": 1,
+              "name": "Between circuits",
+              "num_reps": 1,
+              "exercise_type": "lifting",
+              "description": "200 Jump Rope (Substitute 500 Urgs on a rowing machine or a ¼ mile run)"
+            }
+          ]
+        },
+        {
+          "position": 4,
+          "num_reps": 3,
+          "drills": [
+            {
+              "position": 1,
+              "name": "Arms, Chest, and Abs",
+              "num_reps": 15,
+              "exercise_type": "lifting",
+              "description": "Seated Shoulder Press"
+            },
+            {
+              "position": 2,
+              "name": "Arms, Chest, and Abs",
+              "num_reps": 10,
+              "exercise_type": "lifting",
+              "description": "Hammer Curls – 10 each"
+            },
+            {
+              "position": 3,
+              "name": "Arms, Chest, and Abs",
+              "num_reps": 50,
+              "exercise_type": "lifting",
+              "description": "Russian Twists with weight – 50 total"
+            }
+          ]
+        },
+        {
+          "position": 5,
+          "num_reps": 1,
+          "drills": [
+            {
+              "position": 1,
+              "name": "Between circuits",
+              "num_reps": 1,
+              "exercise_type": "lifting",
+              "description": "200 Jump Rope (Substitute 500 Urgs on a rowing machine or a ¼ mile run)"
+            }
+          ]
+        },
+        {
+          "position": 6,
+          "num_reps": 3,
+          "drills": [
+            {
+              "position": 1,
+              "name": "Arms, Chest, and Abs",
+              "num_reps": 10,
+              "exercise_type": "lifting",
+              "description": "Medicine Ball Pushups(both hands on ball)"
+            },
+            {
+              "position": 2,
+              "name": "Arms, Chest, and Abs",
+              "num_reps": 20,
+              "exercise_type": "lifting",
+              "description": "Bench Dips"
+            },
+            {
+              "position": 3,
+              "name": "Arms, Chest, and Abs",
+              "num_reps": 15,
+              "exercise_type": "lifting",
+              "description": "Rollouts"
+            }
+          ]
+        },
+        {
+          "position": 7,
+          "num_reps": 1,
+          "drills": [
+            {
+              "position": 1,
+              "name": "Between circuits",
+              "num_reps": 1,
+              "exercise_type": "lifting",
+              "description": "200 Jump Rope (Substitute 500 Urgs on a rowing machine or a ¼ mile run)"
+            }
+          ]
+        },
+        {
+          "position": 8,
+          "num_reps": 3,
+          "drills": [
+            {
+              "position": 1,
+              "name": "Arms, Chest, and Abs",
+              "num_reps": 10,
+              "exercise_type": "lifting",
+              "description": "Shoulder Circuit – 10 Total (10 side raises, 10 bent arm side raises, 10 front raises)"
+            },
+            {
+              "position": 2,
+              "name": "Arms, Chest, and Abs",
+              "num_reps": 25,
+              "exercise_type": "lifting",
+              "description": "Decline Sit-ups with medicine ball"
+            },
+            {
+              "position": 3,
+              "name": "Arms, Chest, and Abs",
+              "num_reps": 20,
+              "exercise_type": "lifting",
+              "description": "Leg Hip Raises"
+            }
+          ]
+        },
+        {
+          "position": 9,
+          "num_reps": 1,
+          "drills": [
+            {
+              "position": 1,
+              "name": "Between circuits",
+              "num_reps": 1,
+              "exercise_type": "lifting",
+              "description": "200 Jump Rope (Substitute 500 Urgs on a rowing machine or a ¼ mile run)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day_num": 5,
+      "week_num": 11,
+      "circuits": [
+        {
+          "position": 2,
+          "num_reps": 3,
+          "drills": [
+            {
+              "position": 1,
+              "name": "Total Body",
+              "num_reps": 15,
+              "exercise_type": "lifting",
+              "description": "Barbell Squats"
+            },
+            {
+              "position": 2,
+              "name": "Total Body",
+              "num_reps": 30,
+              "exercise_type": "lifting",
+              "description": "Lunges jumps- 15 each"
+            },
+            {
+              "position": 3,
+              "name": "Total Body",
+              "num_reps": 15,
+              "exercise_type": "lifting",
+              "description": "RDL's"
+            },
+            {
+              "position": 4,
+              "name": "Total Body",
+              "num_reps": 20,
+              "exercise_type": "lifting",
+              "description": "Thrusters with weight"
+            },
+            {
+              "position": 5,
+              "name": "Total Body",
+              "num_reps": 15,
+              "exercise_type": "lifting",
+              "description": "DB Incline Bench"
+            },
+            {
+              "position": 6,
+              "name": "Total Body",
+              "num_reps": 10,
+              "exercise_type": "lifting",
+              "description": "Burpees"
+            },
+            {
+              "position": 7,
+              "name": "Total Body",
+              "num_reps": 12,
+              "exercise_type": "lifting",
+              "description": "Alternate Shoulder Raise"
+            },
+            {
+              "position": 8,
+              "name": "Total Body",
+              "num_reps": 30,
+              "exercise_type": "lifting",
+              "description": "Tricep Kickbacks - 15 each"
+            },
+            {
+              "position": 9,
+              "name": "Total Body",
+              "num_reps": 15,
+              "exercise_type": "lifting",
+              "description": "DB Row"
+            },
+            {
+              "position": 10,
+              "name": "Total Body",
+              "num_reps": 30,
+              "exercise_type": "lifting",
+              "description": "Wall Throws – 15 each side"
+            },
+            {
+              "position": 11,
+              "name": "Total Body",
+              "num_reps": 30,
+              "exercise_type": "lifting",
+              "description": "Toe Touches"
+            },
+            {
+              "position": 12,
+              "name": "Total Body",
+              "num_reps": 25,
+              "exercise_type": "lifting",
+              "description": "Mountain Climbers"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

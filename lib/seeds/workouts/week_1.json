@@ -1,0 +1,120 @@
+{
+  "workouts": [
+    {
+      "day_num": 1,
+      "week_num": 1,
+      "circuits": [
+        {
+          "position": 1,
+          "num_reps": 1,
+          "drills": [
+            {
+              "name": "Long Run",
+              "position": 1,
+              "num_reps": 1,
+              "exercise_type": "conditioning",
+              "description": "30 minutes at the fastest pace you can run (Track the distance)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day_num": 2,
+      "week_num": 1,
+      "circuits": [
+        {
+          "position": 1,
+          "num_reps": 1,
+          "drills": [
+            {
+              "name": "100's",
+              "position": 1,
+              "num_reps": 10,
+              "exercise_type": "conditioning",
+              "description": "100's each in 1 minute (20 seconds for the 100yd sprint, and 40 seconds recovery to jog back) This should take a total of 10 consecutive minutes"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day_num": 3,
+      "week_num": 1,
+      "circuits": [
+        {
+          "position": 1,
+          "num_reps": 1,
+          "drills": [
+            {
+              "name": "Speed Training",
+              "position": 1,
+              "num_reps": 6,
+              "exercise_type": "conditioning",
+              "description": "60 yard sprints with 20 seconds rest in between each 1 minute rest"
+            },
+            {
+              "name": "Speed Training",
+              "position": 2,
+              "num_reps": 8,
+              "exercise_type": "conditioning",
+              "description": "40 yard sprints with 15 seconds rest in between each 1 minute rest"
+            },
+            {
+              "name": "Speed Training",
+              "position": 3,
+              "num_reps": 10,
+              "exercise_type": "conditioning",
+              "description": "20 yard sprints with 10 seconds rest in between each 2 minute rest"
+            },
+            {
+              "name": "Speed Training",
+              "position": 4,
+              "num_reps": 4,
+              "exercise_type": "conditioning",
+              "description": "5/10/15 shuttles with 15 seconds rest in between each Sprint out 5, back 5, out 10, back 10, out 15, back 15 for a total of 60 yards"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day_num": 4,
+      "week_num": 1,
+      "circuits": [
+        {
+          "position": 1,
+          "num_reps": 1,
+          "drills": [
+            {
+              "name": "150's",
+              "position": 1,
+              "num_reps": 6,
+              "exercise_type": "conditioning",
+              "description": "150's with 1 minute rest in between each 25 yards up and back 3 times"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "day_num": 5,
+      "week_num": 1,
+      "circuits": [
+        {
+          "position": 1,
+          "num_reps": 1,
+          "drills": [
+            {
+              "name": "Half-miles",
+              "position": 1,
+              "num_reps": 3,
+              "exercise_type": "conditioning",
+              "description": "Half-miles in 3:30 with 3 min rest in between each"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -9,6 +9,7 @@ RSpec.describe Drill, type: :model do
   it { is_expected.to have_many(:user_drills) }
 
   it { is_expected.to validate_presence_of(:exercise_type) }
+  it { is_expected.to validate_presence_of(:name) }
   it { is_expected.to validate_presence_of(:num_reps) }
   it { is_expected.to validate_presence_of(:position) }
   it { is_expected.to validate_presence_of(:description) }

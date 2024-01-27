@@ -3,13 +3,14 @@ FactoryBot.define do
     exercise_type { :conditioning }
     num_reps { 1 }
     position { 1 }
+    name { 'Long Run' }
     description { '30 minutes at the fastest pace you can run' }
     circuit
 
     trait :hundreds do
       exercise_type { :conditioning }
       num_reps { 10 }
-      description { "100’s each in 1 minute (20 seconds for the 100yd sprint, and 40 seconds recovery to jog back) This should take a total of 10 consecutive minutes" }
+      description { "100's each in 1 minute (20 seconds for the 100yd sprint, and 40 seconds recovery to jog back) This should take a total of 10 consecutive minutes" }
     end
 
     trait :speed_training do
@@ -21,7 +22,7 @@ FactoryBot.define do
     trait :yard_sets do
       exercise_type { :conditioning }
       num_reps { 4 }
-      description { '300’s with 2 minute rest in between each (25 yards up and back 6 times)' }
+      description { "300's with 2 minute rest in between each (25 yards up and back 6 times)" }
     end
 
     trait :mile_reps do
