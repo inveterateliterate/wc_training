@@ -1,5 +1,17 @@
 require 'simplecov'
-SimpleCov.start
+require 'simplecov_small_badge'
+SimpleCov.start do
+  SimpleCov.formatters = SimpleCov::Formatter::MultiFormatter.new(
+    [
+      SimpleCov::Formatter::HTMLFormatter,
+      SimpleCovSmallBadge::Formatter
+    ]
+  )
+end
+# configure any options you want for SimpleCov::Formatter::BadgeFormatter
+SimpleCovSmallBadge.configure do |config|
+  config.output_path = 'app/assets/images/coverage'
+end
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'

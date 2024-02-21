@@ -33,6 +33,7 @@ gem 'tzinfo-data', platforms: %i[ mingw mswin x64_mingw jruby ]
 # gem 'kredis'
 
 group :development, :test do
+  gem 'brakeman'
   gem 'bullet'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'fasterer'
@@ -67,6 +68,7 @@ group :test do
   gem 'rspec-retry'
   gem 'shoulda-matchers'
   gem 'simplecov'
+  gem 'simplecov-small-badge', github: 'launchpadlab/simplecov-small-badge'
   # gem 'capybara'
   # gem 'selenium-webdriver'
   # gem 'webdrivers'

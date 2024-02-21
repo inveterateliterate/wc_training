@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/launchpadlab/simplecov-small-badge.git
+  revision: ce5ca7bc5445d1009097183fafa4d55129eff180
+  specs:
+    simplecov-small-badge (0.2.4)
+      repo-small-badge (~> 0.2.7)
+      simplecov (~> 0.17)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -102,6 +110,8 @@ GEM
       debug_inspector (>= 0.0.1)
     bootsnap (1.17.1)
       msgpack (~> 1.2)
+    brakeman (6.1.2)
+      racc
     builder (3.2.4)
     bullet (7.1.6)
       activesupport (>= 3.0.0)
@@ -393,6 +403,8 @@ GEM
     regexp_parser (2.9.0)
     reline (0.4.2)
       io-console (~> 0.5)
+    repo-small-badge (0.2.10)
+      victor (~> 0.3.0)
     require_all (3.0.0)
     responders (3.1.1)
       actionpack (>= 5.2)
@@ -513,6 +525,7 @@ GEM
     unicode-display_width (2.5.0)
     uniform_notifier (1.16.0)
     uri (0.13.0)
+    victor (0.3.4)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.2.1)
@@ -535,6 +548,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootsnap
+  brakeman
   bullet
   byebug
   danger
@@ -571,6 +585,7 @@ DEPENDENCIES
   sassc-rails
   shoulda-matchers
   simplecov
+  simplecov-small-badge!
   slim-rails
   slim_lint
   sprockets-rails

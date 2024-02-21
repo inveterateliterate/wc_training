@@ -1,0 +1,140 @@
+Table "admin_users" {
+  "id" bigint [not null]
+  "email" "character varying" [not null, default: `''::charactervarying`]
+  "encrypted_password" "character varying" [not null, default: `''::charactervarying`]
+  "reset_password_token" "character varying"
+  "reset_password_sent_at" timestamp(6)
+  "remember_created_at" timestamp(6)
+
+Indexes {
+  email [type: btree, unique, name: "index_admin_users_on_email"]
+  reset_password_token [type: btree, unique, name: "index_admin_users_on_reset_password_token"]
+}
+}
+Table "circuits" {
+  "id" bigint [not null]
+  "workout_id" bigint [not null]
+  "position" integer [not null]
+  "num_reps" integer [not null]
+  "created_at" timestamp(6) [not null]
+  "updated_at" timestamp(6) [not null]
+
+Indexes {
+  workout_id [type: btree, name: "index_circuits_on_workout_id"]
+}
+}
+
+Table "drills" {
+  "id" bigint [not null]
+  "circuit_id" bigint [not null]
+  "exercise_type" integer [not null]
+  "position" integer [not null]
+  "num_reps" integer [not null]
+  "description" "character varying" [not null]
+  "created_at" timestamp(6) [not null]
+  "updated_at" timestamp(6) [not null]
+  "name" "character varying" [not null]
+
+Indexes {
+  circuit_id [type: btree, name: "index_drills_on_circuit_id"]
+}
+}
+
+Table "programs" {
+  "id" bigint [not null]
+  "name" "character varying"
+  "created_at" timestamp(6) [not null]
+  "updated_at" timestamp(6) [not null]
+}
+
+Table "user_drills" {
+  "id" bigint [not null]
+  "user_id" bigint [not null]
+  "drill_id" bigint [not null]
+  "notes" text
+  "created_at" timestamp(6) [not null]
+  "updated_at" timestamp(6) [not null]
+
+Indexes {
+  drill_id [type: btree, name: "index_user_drills_on_drill_id"]
+  user_id [type: btree, name: "index_user_drills_on_user_id"]
+}
+}
+
+Table "user_programs" {
+  "id" bigint [not null]
+  "user_id" bigint [not null]
+  "program_id" bigint [not null]
+  "created_at" timestamp(6) [not null]
+  "updated_at" timestamp(6) [not null]
+
+Indexes {
+  program_id [type: btree, name: "index_user_programs_on_program_id"]
+  user_id [type: btree, name: "index_user_programs_on_user_id"]
+}
+}
+
+Table "user_workouts" {
+  "id" bigint [not null]
+  "user_id" bigint [not null]
+  "workout_id" bigint [not null]
+  "date" date [not null]
+  "notes" text
+  "complete" boolean [not null, default: false]
+  "created_at" timestamp(6) [not null]
+  "updated_at" timestamp(6) [not null]
+
+Indexes {
+  user_id [type: btree, name: "index_user_workouts_on_user_id"]
+  workout_id [type: btree, name: "index_user_workouts_on_workout_id"]
+}
+}
+
+Table "users" {
+  "id" bigint [not null]
+  "first_name" "character varying"
+  "last_name" "character varying"
+  "email" "character varying" [not null]
+  "encrypted_password" "character varying" [not null]
+  "reset_password_token" "character varying"
+  "reset_password_sent_at" timestamp(6)
+  "remember_created_at" timestamp(6)
+  "created_at" timestamp(6) [not null]
+  "updated_at" timestamp(6) [not null]
+
+Indexes {
+  email [type: btree, unique, name: "index_users_on_email"]
+  reset_password_token [type: btree, unique, name: "index_users_on_reset_password_token"]
+}
+}
+
+Table "workouts" {
+  "id" bigint [not null]
+  "day_num" integer [not null]
+  "week_num" integer [not null]
+  "program_id" bigint [not null]
+  "created_at" timestamp(6) [not null]
+  "updated_at" timestamp(6) [not null]
+
+Indexes {
+  program_id [type: btree, name: "index_workouts_on_program_id"]
+}
+}
+
+Ref "fk_rails_0e6760eaed":"workouts"."id" < "circuits"."workout_id"
+
+Ref "fk_rails_43fe11990a":"programs"."id" < "workouts"."program_id"
+
+Ref "fk_rails_7ca52279e4":"users"."id" < "user_drills"."user_id"
+
+Ref "fk_rails_8a7d49244c":"drills"."id" < "user_drills"."drill_id"
+
+Ref "fk_rails_99c3ce76e4":"workouts"."id" < "user_workouts"."workout_id"
+
+Ref "fk_rails_c485825386":"circuits"."id" < "drills"."circuit_id"
+
+Ref "fk_rails_cd5a855ae2":"users"."id" < "user_programs"."user_id"
+
+Ref "fk_rails_de44bb68d8":"users"."id" < "user_workouts"."user_id"
+
+Ref "fk_rails_e44a2bc3c3":"programs"."id" < "user_programs"."program_id"
