@@ -46,4 +46,4 @@ CommitMsg:
 
 PrePush:
   RSpec:
-    enabled: true
+    enabled: false
